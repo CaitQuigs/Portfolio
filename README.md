@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This application will display a portfolio of completed coding work for the user.
@@ -21,3 +22,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
+=======
+# Portfolio
+Portfolio of completed coding work
+>>>>>>> origin/master
