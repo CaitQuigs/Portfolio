@@ -5,11 +5,14 @@ Rails.application.routes.draw do
 
   get 'projects' => 'projects#index'
 
-  get 'contacts/index' => 'contacts#index'
-  get 'contacts/new' =>  'contacts#new'
-  get 'home' => 'welcome#home'
+	get 'home' => 'welcome#home'
   get 'about' =>'welcome#about'
 
-  
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'contact' => 'contacts#new'
+  get 'contacts' => 'contacts#new'
+
+  get 'contact_confirmation' => 'contacts#contact_confirmation'
+
+  # Routes below here will only be visible in admin section
+  get 'contacts_list' => 'contacts#index'
 end
