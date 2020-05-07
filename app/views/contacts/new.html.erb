@@ -8,8 +8,8 @@
 				<li><%= msg %></li>
 				<% end %>
 			</ul>
-		</div>
-	<% end %>
+	</div>
+<% end %>
 
 	<p>
 		<%= form.label :name %>
@@ -30,13 +30,12 @@
 	<p><%= form.radio_button :method_of_contact, "email" %>Email <%= form.radio_button :method_of_contact, "phone" %>Phone</p>
 
 <!-- Need list for industry selection -->
-	<p>Please pick the industy which best represents your company:</p>
+	<p>Please pick the industry which best represents your company:</p>
 <p><%= form.select(:industry, options_for_select(@industries)) %> </p>
 	<p>
 		<%= form.label :work_description %>
 		<%= form.text_area :work_description %>
 	</p>
-
 	<p>
 		<%= form.submit %>
 	</p>

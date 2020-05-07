@@ -1,2 +1,34 @@
-<h1>Contacts#index</h1>
-<p>Find me in app/views/contacts/index.html.erb</p>
+<h1>Contacts List</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Company</th>
+			<th>Industry</th>
+			<th>Email</th>
+			<th>Phone</th>
+			<th>Preferred Method of Contact</th>
+			<th>Work Description</th>
+			<th>Contact Log</th>
+			<th>Update Log</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @contacts.each do |contact| %>
+		<tr>
+			<td><%= contact.name %></td>
+			<td><%= contact.company %></td>
+			<td><%= contact.industry %></td>
+			<td><%= contact.email %></td>
+			<td><%= contact.phone %></td>
+			<td><%= contact.method_of_contact %></td>
+			<td><%= contact.work_description %></td>
+			<td><%= contact.contact_log %><td>
+			<td><%= contact.update_log %></td>
+			<td><%= link_to 'Delete' contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+		</tr>
+		<% end %>
+	</tbody>

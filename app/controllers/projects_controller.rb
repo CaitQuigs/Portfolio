@@ -9,6 +9,11 @@ class ProjectsController < ApplicationController
 
 	def new
 		@project = Project.new
+		@project_tags = @project.project_tags.build
+		@tags = @project_tags.build_tag
+		if @tags.empty?
+			@tags = 'No tags yet'
+		end
 	end
 
 	def edit
@@ -37,13 +42,23 @@ class ProjectsController < ApplicationController
 
 	def destroy
 		@project = Project.find(params[:id])
+		@project_tags = @project.project_tags.build
 		@project.destroy
+		@project_tags.destroy
 		redirect_to projects_path
+	end
+
+	def delete_pt
+		@project_tag = ProjectTag.find(params[:id])
+		@project_tag.destroy
+		redirect_to project_path
 	end
 
 	private
 	def project_params
-		params.require(:project).permit(:name, :description, :tech_stack, :deployment)
+		params.require(:project).permit(:name, :description, :tech_stack, :deployment,
+			project_tag_attributes: [ :id, :tag_id, :project_id, 
+				tag_attributes: [:id, :tag_name] ])
 	end
 
 end

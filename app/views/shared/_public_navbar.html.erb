@@ -1,12 +1,16 @@
 <header>
 	<nav>
-		<%= image_tag "logo.png" %>
-		<p>Caitlin Quigley</p>
-		<ul class="nav">
-			<li class="nav-item"><%= link_to 'Home', root_path %></li>
-			<li class="nav-item"><%= link_to 'About Me', about_path %></li>
-			<li class="nav-item"><%= link_to 'My Work', projects_path %></li>
-			<li class="nav-item"><%= link_to 'Contact Me', contact_path %></li>
-		</ul>
+		<div class="nav-left">
+			<%= image_tag 'logo.png', class: 'nav-logo' %>
+			<p class="nav-brand">Caitlin Quigley</p>
+		</div>
+		<div class="nav-right">
+			<ul>
+				<li class="nav-item"><%= link_to 'Home', root_path %></li>
+				<li class="nav-item"><%= link_to 'About Me', about_path %></li>
+				<li class="nav-item"><%= link_to 'My Work', projects_path %></li>
+				<li class="nav-item"><%= link_to 'Contact Me', contact_path %></li>
+			</ul>
+		</div>
 	</nav>
 </header>

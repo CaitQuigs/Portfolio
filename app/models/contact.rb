@@ -3,6 +3,7 @@ class Contact < ApplicationRecord
 	validates :company, presence: true, length: { minimum: 5 }
 	validates :work_description, presence: true
 	validates :industry, presence: true
+	validates :email, presence: true
 #	validate :method_verifier
 
 #	def method_verifier
@@ -16,4 +17,15 @@ class Contact < ApplicationRecord
 #			
 #		end
 #	end
+
+	def add_update_log
+		self.update_log.push(Date.now)
+	end
+
+	def add_contact_log
+		if (:contact_log)
+			self.contact_log.push(:contact_log)
+		end
+	end
+
 end

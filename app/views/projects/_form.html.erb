@@ -29,8 +29,24 @@
 		<%= form.text_field :deployment %>
 	</p>
 
+
+	<!-- Make new tags if they aren't listed above -->
+	<% form.fields_for :project_tags do |pt_form| %>
+
+	<!-- Display tags with a project_tag for this project and way to remove them -->
+		<% @tags.each do |t| %>
+			<p><%= t.tag_name %> <%= button_tag 'Delete', method: :delete_pt %></p>
+		<% end %>
+
+
+			<% pt_form.fields_for :tags do |tag_form| %>
+				<p>Enter new tag</p>
+				<p><%= tag_form.text_field :tag_name %> <%= tag_form.submit 'Add Tag', method: :create_tag%></p>
+			<% end %>
+	<% end %>
+
 	<p>
-		<%= form.submit %>
+		<%= form.submit 'Submit' %>
 	</p>
 
 <% end %>
