@@ -1,23 +1,20 @@
 class ProjectsController < ApplicationController
+	before_action :set_project, only: [:show, :edit, :update, :destroy]
 	def index
 		@projects = Project.all
 	end
 
 	def show
-		@project = Project.find(params[:id])
 	end
 
 	def new
 		@project = Project.new
 		@project_tags = @project.project_tags.build
-		@tags = @project_tags.build_tag
-		if @tags.empty?
-			@tags = 'No tags yet'
-		end
+		@tags = Tag.all
 	end
 
 	def edit
-		@project = Project.find(params[:id])
+		@tags = Tag.all
 	end
 
 	def create
@@ -31,8 +28,6 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
-		@project = Project.find(params[:id])
-
 		if @project.update(project_params)
 			redirect_to @project
 		else
@@ -41,7 +36,6 @@ class ProjectsController < ApplicationController
 	end
 
 	def destroy
-		@project = Project.find(params[:id])
 		@project_tags = @project.project_tags.build
 		@project.destroy
 		@project_tags.destroy
@@ -55,10 +49,15 @@ class ProjectsController < ApplicationController
 	end
 
 	private
-	def project_params
-		params.require(:project).permit(:name, :description, :tech_stack, :deployment,
-			project_tag_attributes: [ :id, :tag_id, :project_id, 
-				tag_attributes: [:id, :tag_name] ])
-	end
+		def project_params
+			params.require(:project).permit(:name, :description, :tech_stack, :deployment,
+				project_tag_attributes: [ :id, :tag_id, :project_id, 
+					tag_attributes: [:id, :tag_name] ],
+				screenshot_attributes: [:id, :image_data])
+		end
+
+		def set_project
+			@project = Project.find(params[:id])
+		end
 
 end

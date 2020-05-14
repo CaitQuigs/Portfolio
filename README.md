@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 # README
 
-This application will display a portfolio of completed coding work for the user.
+This application will display a portfolio of completed coding work for the user.  The user's work examples will be displayed on cards with screenshots, application information and a link to the deployed project.
 
 
 Things you may want to cover:

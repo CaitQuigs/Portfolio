@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 	root 'welcome#home'
 
   resources :projects
+  resources :tags
 
   get 'projects' => 'projects#index'
 

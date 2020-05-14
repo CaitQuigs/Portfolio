@@ -10,40 +10,37 @@
 		</div>
 	<% end %>
 
-	<p>
+	<div>
 		<%= form.label :name %>
 		<%= form.text_field :name %>
-	</p>
-	<p>
+	</div>
+	<div>
 		<%= form.label :description %>
 		<%= form.text_area :description %>
-	</p>
+	</div>
 
-	<p>
+	<div>
 		<%= form.label :tech_stack %>
 		<%= form.text_field :tech_stack %>
-	</p>
+	</div>
 
-	<p>
+	<div>
 		<%= form.label :deployment %>
 		<%= form.text_field :deployment %>
-	</p>
+	</div>
 
-
-	<!-- Make new tags if they aren't listed above -->
-	<% form.fields_for :project_tags do |pt_form| %>
+	<% form.fields_for :screenshots do |ss_form| %>
+		<%= ss_form.label :screenshot %>
+		<%= ss_form.file_field :image %>
+		<%= ss_form.hidden_field :image, value: ss_form.object.cached_image_data %>
+		<%= ss_form.submit %>
+	<% end %>
 
 	<!-- Display tags with a project_tag for this project and way to remove them -->
-		<% @tags.each do |t| %>
-			<p><%= t.tag_name %> <%= button_tag 'Delete', method: :delete_pt %></p>
-		<% end %>
+   	<h4>List of Tags for this Project</h4>
 
-
-			<% pt_form.fields_for :tags do |tag_form| %>
-				<p>Enter new tag</p>
-				<p><%= tag_form.text_field :tag_name %> <%= tag_form.submit 'Add Tag', method: :create_tag%></p>
-			<% end %>
-	<% end %>
+	<!-- Select Tags from Checkboxes -->
+	<%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :tag_name) %>
 
 	<p>
 		<%= form.submit 'Submit' %>

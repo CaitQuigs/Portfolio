@@ -5,6 +5,7 @@
 .container {
 	width: 95%;
 	margin: 0 auto;
+	display: block;
 }
 
 .jumbotron {
@@ -32,8 +33,18 @@ h2.home {
 	display: block;
 }
 
-.container {
-	width: 90%;
-	display: block;
+.links {
+	display: flex;
+	justify-content: space-between;
 }
 
+.home-box {
+	background-color: none;
+	border: double solid #424242;
+	width: 30%;
+	height: 400px;
+}
+
+.home-box a {
+	color: black;
+}

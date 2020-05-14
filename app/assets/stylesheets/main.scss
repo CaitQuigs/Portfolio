@@ -5,36 +5,17 @@
 @import "styles/projects.scss";
 @import "styles/shared.scss";
 
-@font-face {
-	font-family: 'Poppins';
-	font-weight: 500;
-	font-style: normal;
-	src: font_path('Poppins/Poppins-Medium.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: 'PoppinsBold';
-	font-weight: 700;
-	font-style: normal;
-	src: font_path('Poppins/Poppins-Bold.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: 'PoppinsLight';
-	font-weight: 300;
-	font-style: normal;
-	src: font_path('Poppins/Poppins-Light.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: 'PoppinsItalic';
-	font-weight: 500;
-	font-style: italic;
-	src: font_path('Poppins/Poppins-MediumItalic.ttf') format('truetype');
-}
-
 html, body {
 	font-family: 'Poppins', 'Arial', sans-serif;
 	font-size: 14px;
 	margin: 0;
+}
+
+main {
+	margin-top: $nav-height;
+}
+
+a {
+	color: #FFF;
+	text-decoration: none;
 }
