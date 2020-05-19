@@ -1,5 +1,7 @@
-<h1 class="projects title">New Project</h1>
+<div class="container">
+	<h1 class="projects title">New Project</h1>
 
-<%= render partial: 'form' %>
+	<%= render partial: 'form', project: @project %>
 
-<%= link_to 'Back', projects_path %>
+	<%= link_to 'Back', projects_path %>	
+</div>

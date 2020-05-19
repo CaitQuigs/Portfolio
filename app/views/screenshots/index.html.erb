@@ -1,0 +1,34 @@
+<div class="container">
+	<h1>All Screenshots</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Screenshot ID</th>
+				<th>Title</th>
+				<th>Screenshot Image</th>
+				<th>Project</th>
+				<th>Show</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @screenshots.each do |ss| %>
+			<tr>
+				<td><%= ss.id %></td>
+				<td><%= ss.title %></td>
+				<td><%= ss.image %></td>
+				<td><%= @project.name %></td>
+				<td><%= link_to 'Show', project_screenshot_path(@project, ss) %></td>
+				<td><%= link_to 'Edit', edit_project_screenshot_path(@project, ss) %></td>
+				<td><%= link_to 'Delete', project_screenshot_path(@project, ss), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+
+	<p><%= link_to 'Add a new screenshot', new_project_screenshot_path %></p>
+</div>

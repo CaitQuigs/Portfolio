@@ -1,10 +1,10 @@
-<%= form_with model: @project, local: true do |form| %>
+<%= form_with model: @project, local: true, html: { enctype: "multipart/form-data" } do |form| %>
 	<% if @project.errors.any? %>
 		<div id="error_explanation">
 			<h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
 			<ul>
 				<% @project.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
+					<li><%= msg %></li>
 				<% end %>
 			</ul>
 		</div>
@@ -14,8 +14,9 @@
 		<%= form.label :name %>
 		<%= form.text_field :name %>
 	</div>
+
 	<div>
-		<%= form.label :description %>
+		<%= form.label "Project Description" %>
 		<%= form.text_area :description %>
 	</div>
 
@@ -28,20 +29,32 @@
 		<%= form.label :deployment %>
 		<%= form.text_field :deployment %>
 	</div>
+	<div>
+		<% @screenshots&.each do |ss| %>
+			<%= image_tag ss.image if ss.image %>
+		<% end %>
 
+	</div>
+	<!-- Fields for uploading Screenshots to the project -->
 	<% form.fields_for :screenshots do |ss_form| %>
-		<%= ss_form.label :screenshot %>
-		<%= ss_form.file_field :image %>
-		<%= ss_form.hidden_field :image, value: ss_form.object.cached_image_data %>
-		<%= ss_form.submit %>
+		<div>
+				<p><%= ss_form.label 'Upload Screenshot' %></p>
+				<p><%= ss_form.file_field :image %></p>
+				<%= ss_form.submit %>
+		</div>
 	<% end %>
-
 	<!-- Display tags with a project_tag for this project and way to remove them -->
-   	<h4>List of Tags for this Project</h4>
+   <!--	<h4>List of Tags for this Project</h4>
+   		<% if @project.project_tags.any? %>
+   			<% @project.project_tags.each do |pt| %>
+   				<%= pt.tag_id %>
+   			<% end %>
+   		<% end %> -->
 
 	<!-- Select Tags from Checkboxes -->
+		<!--<h4>Select Tags to add to this Project</h4>
 	<%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :tag_name) %>
-
+-->
 	<p>
 		<%= form.submit 'Submit' %>
 	</p>

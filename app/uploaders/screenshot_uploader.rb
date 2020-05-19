@@ -1,3 +1,0 @@
-class ScreenshotUploader < Shrine
-	
-end

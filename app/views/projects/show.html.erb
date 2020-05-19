@@ -1,16 +1,19 @@
-<h1 class="projects title">Project Details</h1>
+<div class="container">
+	<h1 class="projects title">Project Details</h1>
 
-<h2> <%= @project.id %> - <%= @project.name %></h2>
-<p>Description: <%=@project.description %></p>
-<p>Technology Stack: <%= @project.tech_stack %></p> 
-<p>Deployment Location: <%= @project.deployment %></p>
-<p>Screenshots</p>
-<% @screenshots.each do |screenshot| %>
-	<%= screenshot.image_data %>
-<% end %>
-<p>Tags</p>
-<% @project_tags.each do |pt| %>
-	<p><%= pt.tag.tag_name %></p>
-<% end %>
+	<h2> <%= @project.id %> - <%= @project.name %></h2>
+	<p>Description: <%=@project.description %></p>
+	<p>Technology Stack: <%= @project.tech_stack %></p> 
+	<p>Deployment Location: <%= @project.deployment %></p>
+	<div class="screenshots-gallery">
+		<p>Screenshots</p>
+		<div class="screenshot">
+			<% @project.screenshots.each do |ss| %>
+				<h3><%= ss.title %></h3>
+				<%= image_tag ss.image, width: 400 %>
+			<% end %>
+		</div>
+	</div>
 
-<%= link_to 'Edit', edit_project_path(@project) %> | <%= link_to 'Back', projects_path %>
+	<%= link_to 'Edit', edit_project_path(@project) %> | <%= link_to 'Back', projects_path %>
+</div>

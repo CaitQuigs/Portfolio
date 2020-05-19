@@ -1,28 +1,28 @@
-<h1 class="projects title">Some of My Work</h1>
-
-<!--  This will be cards with each project that will turn to monos onclick. Mono will have a carousel of screenshots from project -->
 <div class="container">
-	<% @projects.each do |p| %>
-		<div class="project-box">
-			<p><%= p.id %></p>
-			<p><%= p.name %></p>
-			<p><%= p.description %></p>
-			<p><%= p.tech_stack %></p>
-			<!-- Add logic for no link in p.deployment -->
-			<% if p.deployment %>
-				<%= link_to 'See it here', p.deployment %> <br />
-			<% else %>
-				<p>Deployment Location: <%= p.deployment %></p>
-			<% end %>
+	<h1 class="projects title">Some of My Work</h1>
 
-<!-- Add options for administration of website with show, edit, destroy actions and add button for new project. -->
-		<%= link_to 'Edit', edit_project_path(p) %>
-		<%= link_to 'Delete', project_path(p), method: :delete, data: { confirm: 'Are you sure?' } %>
-	<% end %>
-</div>
-<br />
+	<!--  This will be cards with each project that will turn to monos onclick. Mono will have a carousel of screenshots from project -->
+	<div class="container">
+		<% @projects.each do |p| %>
+			<div class="project-box">
+				<p><%= p.id %></p>
+				<p><%= p.name %></p>
+				<p><%= p.description %></p>
+				<p><%= p.tech_stack %></p>
+				<% if p.deployment %>
+					<%= link_to 'See it here', p.deployment %> <br />
+				<% end %>
 
-<!-- Visible only to administrator -->
+	<!-- Add options for administration of website with show, edit, destroy actions and add button for new project. -->
+				<%= link_to 'Show', project_path(p) %>
+				<%= link_to 'Edit', edit_project_path(p) %>
+				<%= link_to 'Delete', project_path(p), method: :delete, data: { confirm: 'Are you sure?' } %>
+			</div>
+		<% end %>
+		<br />
 
-<%= link_to 'New Project', new_project_path %>
+		<!-- Visible only to administrator -->
+
+		<%= link_to 'New Project', new_project_path %>
+	</div>
 </div>

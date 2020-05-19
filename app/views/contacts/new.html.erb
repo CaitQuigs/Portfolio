@@ -1,42 +1,47 @@
-<h1>Contact Me</h1>
-<%= form_with model: @contact, local: true, class: "contact-form" do |form| %>
-	<% if @contact.errors.any? %>
-		<div class="error_explanation">
-			<h2><%= pluralize(@contact.errors.count, "error") %>. Please correct before I can get your information.</h2>
-			<ul>
-				<% @contact.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-				<% end %>
-			</ul>
-	</div>
-<% end %>
+<div class="container">
+	<h1>Contact Me</h1>
+	<%= form_with model: @contact, local: true, class: "contact-form" do |form| %>
+		<% if @contact.errors.any? %>
+			<div class="error_explanation">
+				<h2><%= pluralize(@contact.errors.count, "error") %>. Please correct before I can get your information.</h2>
+				<ul>
+					<% @contact.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+					<% end %>
+				</ul>
+		</div>
+	<% end %>
+		<div class="form-group">
+			<div class="form-control">
+				<%= form.label :name %>
+				<%= form.text_field :name %>
+			</div>
+			<div class="form-control">
+				<%= form.label :company%>
+				<%= form.text_field :comany %>
+			</div>
+			<div class="form-control">
+				<%= form.label :email %>
+				<%= form.email_field(:contact) %>
+			</div>
+			<div class="form-control">
+				<%= form.label :phone %>
+				<%= form.telephone_field(:contact)%>
+			</div>
+			<div class="form-check">
+				How do you prefer to be contacted?
+				<%= form.radio_button :method_of_contact, "email" %>Email <%= form.radio_button :method_of_contact, "phone" %>Phone
+			</div>
 
-	<p>
-		<%= form.label :name %>
-		<%= form.text_field :name %>
-	</p>
-	<p>
-		<%= form.label :company%>
-		<%= form.text_field :comany %>
-	<p>
-		<%= form.label :email %>
-		<%= form.email_field(:contact) %>
-	</p>
-	<p>
-		<%= form.label :phone %>
-		<%= form.telephone_field(:contact)%>
-	</p>
-	<p>How do you prefer to be contacted?</p>
-	<p><%= form.radio_button :method_of_contact, "email" %>Email <%= form.radio_button :method_of_contact, "phone" %>Phone</p>
-
-<!-- Need list for industry selection -->
-	<p>Please pick the industry which best represents your company:</p>
-<p><%= form.select(:industry, options_for_select(@industries)) %> </p>
-	<p>
-		<%= form.label :work_description %>
-		<%= form.text_area :work_description %>
-	</p>
-	<p>
-		<%= form.submit %>
-	</p>
-<% end %>
+	<!-- Need list for industry selection -->
+		<p>Please pick the industry which best represents your company:</p>
+	<p><%= form.select(:industry, options_for_select(@industries)) %> </p>
+		<p>
+			<%= form.label :work_description %>
+			<%= form.text_area :work_description %>
+		</p>
+		<p>
+			<%= form.submit %>
+		</p>
+	<% end %>
+</div>

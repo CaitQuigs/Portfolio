@@ -14,7 +14,12 @@
   <body>
     <%= render partial: 'shared/public_navbar' %>
     <main>
-      <%= yield %>
+        <% flash.each do |type, msg| %>
+          <div class="alert alert-success">
+            <%= msg %>
+          </div>
+        <% end %>
+        <%= yield %>
     </main>
     <%= render partial: 'shared/public_footer' %>
   </body>

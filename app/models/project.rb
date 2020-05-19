@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id          :bigint           not null, primary key
+#  name        :string
+#  tech_stack  :string
+#  description :text
+#  deployment  :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
 class Project < ApplicationRecord
 	validates :name, presence: true, length: { minimum: 6 }
 	validates :description, presence: true, length: { minimum: 10 }
