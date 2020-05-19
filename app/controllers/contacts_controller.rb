@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
 
   def new
   	# List of Industries for select field in form.
-  	@industries = [['', 0], ['Agriculture, Forestry and Wildlife', 1], ['Business & Information', 2], ['Construction & Utilities', 3], ['Education', 4], ['Finance & Insurance', 5], ['Food & Hospitality', 6], ['Health Services', 7], ['Legal Services, Safety & Security', 8], ['Motor Vehicles & Service', 9], ['Natural Resources & Environment', 10], ['Personal Services', 11], ['Real Estate & Housing', 12], ['Transportation & Logistics', 13]]
+  	@industries = [['', 0], ['Agriculture, Forestry and Wildlife', 1], ['Arts, Entertainment & Recreation', 2], ['Business Administration & Support', 3], ['Construction & Utilities', 4], ['Education', 5], ['Finance & Insurance', 6], ['Food & Hospitality', 7], ['Health Services', 8], ['Legal Services, Safety & Security', 9], ['Life & Natural Sciences', 10], ['Manufacturing', 11], ['Motor Vehicles & Service', 12], ['Natural Resources & Environment', 13], ['Personal Services', 14], ['Real Estate & Housing', 15], ['Technology & Electronics', 16], ['Telecommunications & Information', 17], ['Transportation & Logistics', 18]]
   	@contact = Contact.new
   end
 

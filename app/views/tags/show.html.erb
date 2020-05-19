@@ -2,7 +2,8 @@
 	<h1>Tag Detail</h1>
 
 	<h2> <%= @tag.id %> - <%= @tag.tag_name %></h2>
-	<% if @project_tags.first.id %>
+
+	<% if @project_tags.id& %>
 		<h3>Projects with this Tag</h3>
 		<% @project_tags.each do |pt| %>
 			<p><%= pt.project.name %></p>

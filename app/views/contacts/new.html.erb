@@ -12,36 +12,37 @@
 		</div>
 	<% end %>
 		<div class="form-group">
-			<div class="form-control">
+			<div>
 				<%= form.label :name %>
-				<%= form.text_field :name %>
+				<%= form.text_field :name, class: "form-control" %>
 			</div>
-			<div class="form-control">
-				<%= form.label :company%>
-				<%= form.text_field :comany %>
+			<div>
+				<%= form.label :company %>
+				<%= form.text_field :company, class: "form-control" %>
 			</div>
-			<div class="form-control">
+			<div>
 				<%= form.label :email %>
-				<%= form.email_field(:contact) %>
+				<%= form.email_field :email, class: "form-control" %>
 			</div>
-			<div class="form-control">
+			<div>
 				<%= form.label :phone %>
-				<%= form.telephone_field(:contact)%>
+				<%= form.telephone_field :phone, class: "form-control" %>
 			</div>
-			<div class="form-check">
-				How do you prefer to be contacted?
-				<%= form.radio_button :method_of_contact, "email" %>Email <%= form.radio_button :method_of_contact, "phone" %>Phone
+			<div>
+				<p>How do you prefer to be contacted?</p>
+				<p><%= form.radio_button :method_of_contact, "email", class: "form-check form-check-inline" %>Email    <%= form.radio_button :method_of_contact, "phone", class: "form-check form-check-inline" %>Phone</p>
 			</div>
-
-	<!-- Need list for industry selection -->
-		<p>Please pick the industry which best represents your company:</p>
-	<p><%= form.select(:industry, options_for_select(@industries)) %> </p>
-		<p>
-			<%= form.label :work_description %>
-			<%= form.text_area :work_description %>
-		</p>
-		<p>
-			<%= form.submit %>
-		</p>
+			<div>
+				<p>Please pick the industry which best represents your company:</p>
+				<p><%= form.select :industry, options_for_select(@industries), { include_blank: false }, { class: "custom-select" } %> </p>
+			</div>
+			<div>
+				<%= form.label :work_description %>
+				<%= form.text_area :work_description, class: "form-control" %>
+			</div>
+			<p>
+				<%= form.submit %>
+			</p>
+		</div>
 	<% end %>
 </div>

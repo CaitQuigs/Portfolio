@@ -9,8 +9,9 @@
 			</ul>
 		</div>
 	<% end %>
-
-	<%= form.label :tag_name %>
-	<%= form.text_field :tag_name %>
-	<%= form.submit %>
+	<div class="form-group">
+		<%= form.label :tag_name, class: "form-label" %>
+		<%= form.text_field :tag_name, class: "form-control" %>
+		<%= form.submit %>
+	</div>
 <% end %>
