@@ -3,10 +3,10 @@
 
 	<div class="screenshot">
 		<h3>Title: <%= @screenshot.title %></h3>
-		<%= image_tag @screenshot.image, width :800 if @screenshot.image %>
+		<%= image_tag @screenshot.image, width: 800 %>
 	</div>
 
 	<h2> For Project = <%= @project.name %></h2>
 
-	<%= link_to 'Edit', edit_project_screenshot_path(@project, @screenshot) %> | <%= link_to 'Back', project_screenshots_path %>
+	<%= link_to 'Edit', edit_project_screenshot_path(@project, @screenshot) %> | <%= link_to 'Back', project_screenshots_path(@project) %>
 </div>

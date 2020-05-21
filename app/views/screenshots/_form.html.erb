@@ -1,23 +1,12 @@
 <%= form_with model: [@project, @screenshot], local: true do |form| %>
-	<% if @screenshot.errors.any? %>
-		<div class="error_explanation">
-			<h2><%= pluralize(@screenshot.errors.count, "error") %> prohibited this screenshot from being saved:</h2>
-			<ul>
-				<% @screenshot.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
-
-	<div>
+	<div class="form-group">
 		<%= form.label :title %>
-		<%= form.text_field :title %>
+		<%= form.text_field :title, class: "form-control" %>
 	</div>
 
-	<div>
+	<div class="form-group">
 		<%= form.label :image %>
-		<%= form.file_field :image %>
+		<%= form.file_field :image, class: "form-control-file" %>
 	</div>
 	
 	<div>

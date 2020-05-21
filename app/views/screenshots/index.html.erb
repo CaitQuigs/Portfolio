@@ -6,7 +6,7 @@
 			<tr>
 				<th>Screenshot ID</th>
 				<th>Title</th>
-				<th>Screenshot Image</th>
+				<th>Image</th>
 				<th>Project</th>
 				<th>Show</th>
 				<th>Edit</th>
@@ -19,7 +19,7 @@
 			<tr>
 				<td><%= ss.id %></td>
 				<td><%= ss.title %></td>
-				<td><%= ss.image %></td>
+				<td><%= image_tag ss.image, width: 100 %></td>
 				<td><%= @project.name %></td>
 				<td><%= link_to 'Show', project_screenshot_path(@project, ss) %></td>
 				<td><%= link_to 'Edit', edit_project_screenshot_path(@project, ss) %></td>

@@ -18,6 +18,7 @@
 #
 class Screenshot < ApplicationRecord
   belongs_to :project
+  validates :title, presence: true, length: { minimum: 7 }
   
   has_one_attached :image
 end

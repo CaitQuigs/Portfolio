@@ -1,14 +1,4 @@
 <%= form_with model: @project, local: true, html: { enctype: "multipart/form-data" } do |form| %>
-	<% if @project.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
-			<ul>
-				<% @project.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
 
 	<div>
 		<%= form.label :name %>
@@ -29,20 +19,19 @@
 		<%= form.label :deployment %>
 		<%= form.text_field :deployment %>
 	</div>
-	<div>
-		<% @screenshots&.each do |ss| %>
-			<%= image_tag ss.image if ss.image %>
-		<% end %>
 
-	</div>
-	<!-- Fields for uploading Screenshots to the project -->
-	<% form.fields_for :screenshots do |ss_form| %>
-		<div>
-				<p><%= ss_form.label 'Upload Screenshot' %></p>
-				<p><%= ss_form.file_field :image %></p>
-				<%= ss_form.submit %>
+	<!-- Fields for uploading Screenshots to the project -->	
+	<div class="screenshots-gallery">
+		<p>Screenshots</p>
+		<div class="screenshot">
+			<% @project.screenshots.each do |ss| %>
+				<h3><%= ss.title %></h3>
+				<%= image_tag ss.image, width: 400 %>
+			<% end %>
 		</div>
-	<% end %>
+	</div>
+
+	<%= link_to 'Add or Edit Screenshots', project_screenshots_path(@project) %> 
 	<!-- Display tags with a project_tag for this project and way to remove them -->
    <!--	<h4>List of Tags for this Project</h4>
    		<% if @project.project_tags.any? %>

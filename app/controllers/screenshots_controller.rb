@@ -1,7 +1,7 @@
 class ScreenshotsController < ApplicationController
   before_action :set_project
   before_action :set_screenshot, only: [:show, :edit, :update, :destroy]
-  
+  before_action :authenticate_user!  
 
   def index
   	@screenshots = @project.screenshots.all
@@ -20,7 +20,7 @@ class ScreenshotsController < ApplicationController
   def create
   	@screenshot = @project.screenshots.new(screenshot_params)
 	  	if @screenshot.save
-  		  redirect_to project_screenshot_path(@screenshot), notice: "Screenshot was successfully created."
+  		  redirect_to project_screenshots_path(@project), notice: "Screenshot was successfully created."
   		else
   			render 'new'
   		end
@@ -28,7 +28,7 @@ class ScreenshotsController < ApplicationController
 
   def update
 	  if @screenshot.update(screenshot_params)
-  		redirect_to project_screenshot_path(@screenshot), notice: "Screenshot was successfully updated."
+  		redirect_to project_screenshot_path(@project, @screenshot), notice: "Screenshot was successfully updated."
   	else
   		render 'edit'
   	end
@@ -37,7 +37,7 @@ class ScreenshotsController < ApplicationController
   def destroy
     @screenshot.image.purge
   	@screenshot.destroy
-  	redirect_to project_screenshots_path, notice: "Screenshot was successfully destroyed."
+  	redirect_to project_screenshots_path(@project), notice: "Screenshot was successfully destroyed."
   end
 
   private
