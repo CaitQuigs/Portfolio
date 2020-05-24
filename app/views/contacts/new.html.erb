@@ -18,7 +18,7 @@
 				<%= form.label :phone %>
 				<%= form.telephone_field :phone, class: "form-control" %>
 			</div>
-			<div class="form-group">
+			<div class="form-check form-check-inline">
 				<p>How do you prefer to be contacted?</p>
 				<%= form.radio_button :method_of_contact, "email", class: "form-check form-check-inline" %><%= form.label :method_of_contact_email, 'Email', class: "form-check-label" %>
 				<%= form.radio_button :method_of_contact, "phone", class: "form-check form-check-inline" %><%= form.label :method_of_contact_phone, 'Phone', class: "form-check-label" %>

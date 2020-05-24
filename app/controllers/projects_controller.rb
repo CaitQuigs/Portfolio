@@ -23,18 +23,18 @@ class ProjectsController < ApplicationController
 #		@project.build_screenshots
 
 		if @project.save
-			redirect_to @project, flash[:notice] = 'Project was successfully created.'
+			redirect_to @project, flash[:success] = 'Project was successfully created.'
 		else
-			flash[:errors] = @project.errors.full_messages
+			flash[:error] = @project.errors.full_messages
 			render 'new'
 		end
 	end
 
 	def update
 		if @project.update(project_params)
-			redirect_to @project, flash[:notice] = 'Project was successfully updated.'
+			redirect_to @project, flash[:success] = 'Project was successfully updated.'
 		else
-			flash[:errors] = @project.errors.full_messages
+			flash[:error] = @project.errors.full_messages
 			render 'edit'
 		end
 	end
@@ -42,7 +42,7 @@ class ProjectsController < ApplicationController
 	def destroy
 		@project.destroy
 		@screenshots.destroy
-		redirect_to projects_url, flash[:notice} = 'Project was successfully destroyed.'
+		redirect_to projects_url, flash[:notice] = 'Project was successfully destroyed.'
 	end
 
 	private

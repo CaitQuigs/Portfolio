@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 	<h1>All Screenshots</h1>
 
 	<table class="table">
@@ -21,14 +21,14 @@
 				<td><%= ss.title %></td>
 				<td><%= image_tag ss.image, width: 100 %></td>
 				<td><%= @project.name %></td>
-				<td><%= link_to 'Show', project_screenshot_path(@project, ss) %></td>
-				<td><%= link_to 'Edit', edit_project_screenshot_path(@project, ss) %></td>
-				<td><%= link_to 'Delete', project_screenshot_path(@project, ss), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= link_to 'Show', project_screenshot_path(@project, ss), class: "btn btn-info" %></td>
+				<td><%= link_to 'Edit', edit_project_screenshot_path(@project, ss), class: "btn btn-success" %></td>
+				<td><%= link_to 'Delete', project_screenshot_path(@project, ss), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
 			</tr>
 			<% end %>
 		</tbody>
 	</table>
 
 
-	<p><%= link_to 'Add a new screenshot', new_project_screenshot_path %></p>
+	<p><%= link_to 'Add a new screenshot', new_project_screenshot_path(@project), class: "btn btn-success" %></p>
 </div>

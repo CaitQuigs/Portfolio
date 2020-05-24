@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 	<h1 class="projects title">Edit Project</h1>
 
 	<%= render 'form', project: @project %>
@@ -16,5 +16,5 @@
 
 	<%= link_to 'Add or Edit Screenshots', project_screenshots_path(@project), class: "btn btn-info" %> 
 
-	<%= link_to 'Back', projects_path %>
+	<%= link_to 'Back', projects_path, class: "btn btn-outline-info" %>
 </div>

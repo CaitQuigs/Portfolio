@@ -31,11 +31,11 @@
 				<td><%= contact.work_description %></td>
 				<td><%= contact.contact_log %></td>
 				<td><%= contact.update_log %></td>
-				<td><%= link_to 'Delete', contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<td><%= link_to 'Delete', contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
 			</tr>
 			<% end %>
 		</tbody>
 	</table>
 
-	<%= link_to 'Add a New Contact', contact_path %>
+	<%= link_to 'Add a New Contact', contact_path, class: "btn btn-info" %>
 </div>

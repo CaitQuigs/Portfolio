@@ -38,6 +38,7 @@ class ContactsController < ApplicationController
 			redirect_to @contact
 			flash[:success] = "Contact was successfully updated."
 		else
+			flash[:error] = @contact.errors.full_messages
 			render 'edit'
 		end
 	end

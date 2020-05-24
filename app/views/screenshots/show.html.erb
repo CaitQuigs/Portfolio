@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 	<h1>Screenshot Details</h1>
 
 	<div class="screenshot">
@@ -8,5 +8,8 @@
 
 	<h2> For Project = <%= @project.name %></h2>
 
-	<%= link_to 'Edit', edit_project_screenshot_path(@project, @screenshot) %> | <%= link_to 'Back', project_screenshots_path(@project) %>
+	<div class="btn-group">
+		<%= link_to 'Edit', edit_project_screenshot_path(@project, @screenshot), class: "btn btn-info" %>
+		<%= link_to 'Back', project_screenshots_path(@project), "btn btn-info" %>
+	</div>
 </div>

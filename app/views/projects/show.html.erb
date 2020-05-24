@@ -8,11 +8,14 @@
 
 	<!-- Screenshot Carousel -->
 
+	</div>
+
 	<div>
 	<%= link_to 'Add or Edit Screenshots', project_screenshots_path(@project), class: "btn btn-info" %>
 	</div>
 
-	<div>
-	<%= link_to 'Edit', edit_project_path(@project) %> | <%= link_to 'Back', projects_path %>
+	<div class="btn-group">
+		<%= link_to 'Edit', edit_project_path(@project), class: "btn btn-info" %>
+		<%= link_to 'Back', projects_path, class: "btn btn-info" %>
 	</div>
 </div>

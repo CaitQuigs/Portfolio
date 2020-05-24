@@ -21,16 +21,20 @@ class ScreenshotsController < ApplicationController
   def create
   	@screenshot = @project.screenshots.new(screenshot_params)
 	  	if @screenshot.save
-  		  redirect_to project_screenshots_path(@project), notice: "Screenshot was successfully created."
+  		  redirect_to project_screenshots_path(@project)
+        flash[:success] = "Screenshot was successfully created."
   		else
+        flash[:error] = @screenshot.errors.full_messages
   			render 'new'
   		end
   end
 
   def update
 	  if @screenshot.update(screenshot_params)
-  		redirect_to project_screenshot_path(@project, @screenshot), notice: "Screenshot was successfully updated."
+  		redirect_to project_screenshot_path(@project, @screenshot)
+      flash[:success] = "Screenshot was successfully updated."
   	else
+      flash[:error] = @screenshot.errors.full_messages
   		render 'edit'
   	end
   end
@@ -38,7 +42,8 @@ class ScreenshotsController < ApplicationController
   def destroy
     @screenshot.image.purge
   	@screenshot.destroy
-  	redirect_to project_screenshots_path(@project), notice: "Screenshot was successfully destroyed."
+  	redirect_to project_screenshots_path(@project)
+    flash[:notice] = "Screenshot was successfully destroyed."
   end
 
   private

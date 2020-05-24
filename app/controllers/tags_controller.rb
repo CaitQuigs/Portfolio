@@ -21,7 +21,9 @@ class TagsController < ApplicationController
   	@tag = Tag.new(tag_params)
   	if @tag.save
   		redirect_to '/tags'
+      flash[:success] = "Tag was successfully created."
   	else
+      flash[:error] = @tag.errors.full_messages
   		render 'new'
   	end
   end
@@ -29,7 +31,9 @@ class TagsController < ApplicationController
   def update
   	if @tag.update(tag_params)
   		redirect_to @tag
+      flash[:success] = "Tag was successfully updated."
   	else
+      flash[:error] = @tag.errors.full_messages
   		render 'edit'
   	end
   end
@@ -38,6 +42,7 @@ class TagsController < ApplicationController
   	@tag.destroy
   	@project_tags.destroy
   	redirect_to tags_path
+    flash[:notice] = "Tag was successfully destroyed"
   end
 
   private
