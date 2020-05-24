@@ -1,7 +1,8 @@
 class ScreenshotsController < ApplicationController
   before_action :set_project
   before_action :set_screenshot, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!  
+  before_action :authenticate_user!
+  before_action :is_admin!  
 
   def index
   	@screenshots = @project.screenshots.all

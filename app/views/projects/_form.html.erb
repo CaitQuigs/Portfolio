@@ -1,6 +1,4 @@
 <%= form_with model: @project, local: true, html: { enctype: "multipart/form-data" } do |form| %>
-
-	<div>
 		<%= form.label :name %>
 		<%= form.text_field :name %>
 	</div>
@@ -20,32 +18,8 @@
 		<%= form.text_field :deployment %>
 	</div>
 
-	<!-- Fields for uploading Screenshots to the project -->	
-	<div class="screenshots-gallery">
-		<p>Screenshots</p>
-		<div class="screenshot">
-			<% @project.screenshots.each do |ss| %>
-				<h3><%= ss.title %></h3>
-				<%= image_tag ss.image, width: 400 %>
-			<% end %>
-		</div>
-	</div>
-
-	<%= link_to 'Add or Edit Screenshots', project_screenshots_path(@project) %> 
-	<!-- Display tags with a project_tag for this project and way to remove them -->
-   <!--	<h4>List of Tags for this Project</h4>
-   		<% if @project.project_tags.any? %>
-   			<% @project.project_tags.each do |pt| %>
-   				<%= pt.tag_id %>
-   			<% end %>
-   		<% end %> -->
-
-	<!-- Select Tags from Checkboxes -->
-		<!--<h4>Select Tags to add to this Project</h4>
-	<%= form.collection_check_boxes(:tag_ids, Tag.all, :id, :tag_name) %>
--->
 	<p>
-		<%= form.submit 'Submit' %>
+		<%= form.submit 'Create Project', class: "btn btn-info" %>
 	</p>
 
 <% end %>

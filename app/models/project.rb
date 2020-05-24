@@ -19,17 +19,15 @@ class Project < ApplicationRecord
 
 	has_many :project_tags
 	has_many :tags, through: :project_tags
-	has_many :screenshots
+	has_many :screenshots, inverse_of: :project, dependent: :destroy
 
-	accepts_nested_attributes_for :project_tags, allow_destroy: true
 	accepts_nested_attributes_for :screenshots, allow_destroy: true
 
-	def tags_attributes=(tag_attributes)
-		tag_attributes.values.each do |tag_attributes|
-			tag = tag.find_or_create_by(tag_attribute)
-			self.tags << tag
-		end
+	def screenshot_urls
+# call project, then screenshots associated with project, then image within each screenshot. Then url, add to urls array
 	end
+
+
 
 	
 end

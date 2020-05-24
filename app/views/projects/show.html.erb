@@ -1,21 +1,15 @@
-<div class="container">
-	<h1 class="projects title">Project Details</h1>
-
-	<h2> <%= @project.id %> - <%= @project.name %></h2>
-	<p>Description: <%=@project.description %></p>
+<div class="container-fluid">
+	<h1>Project Details</h1>
+	<h2><%= @project.id %> - <%= @project.name %></h2>
+	<p>Description: <%= @project.description %></p>
 	<p>Technology Stack: <%= @project.tech_stack %></p> 
 	<p>Deployment Location: <%= @project.deployment %></p>
 	<div class="screenshots-gallery">
-		<p>Screenshots</p>
-		<div class="screenshot">
-			<% @project.screenshots.each do |ss| %>
-				<h3><%= ss.title %></h3>
-				<%= image_tag ss.image, width: 400 %>
-			<% end %>
-		</div>
-	</div>
+
+	<!-- Screenshot Carousel -->
+
 	<div>
-	<%= link_to 'Add or Edit Screenshots', project_screenshots_path(@project) %>
+	<%= link_to 'Add or Edit Screenshots', project_screenshots_path(@project), class: "btn btn-info" %>
 	</div>
 
 	<div>

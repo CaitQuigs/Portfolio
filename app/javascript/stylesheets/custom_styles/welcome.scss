@@ -12,8 +12,6 @@
 	background: url('../images/nyc_city_pic.jpg') no-repeat center center fixed;
 	background-size: cover;
 	display: flex;
-	justify-content: center;
-	align-items: 	center;
 }
 
 .home {
@@ -34,15 +32,4 @@ h2.home {
 .links {
 	display: flex;
 	justify-content: space-between;
-}
-
-.home-box {
-	background-color: none;
-	border: double solid #424242;
-	width: 30%;
-	height: 400px;
-}
-
-.home-box a {
-	color: black;
 }

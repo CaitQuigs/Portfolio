@@ -1,6 +1,6 @@
 <div class="jumbotron">
 	<h1 class="home title">Hi, I'm Caitlin.</h1>
-	<h2 class="home subtitle">I would love to build your website.</h2>
+	<h2 class="home display-3">I would love to build your website.</h2>
 </div>
 
 <div class="container-fluid">
@@ -11,14 +11,16 @@
 
 	<div class="container">
 		<section class="links">
-			<div class="home-box">
-				<%= link_to 'About me', about_path %>
-			</div>
-			<div class="home-box">
-				<%= link_to 'My Work', projects_path %>
-			</div>
-			<div class="home-box">
-				<%= link_to 'Contact Me', contact_path %>
+			<div class="card-deck">
+				<div class="card">
+					<%= link_to 'About me', about_path, class: "card-title" %>
+				</div>
+				<div class="card">
+					<%= link_to 'My Work', projects_path, class: "card-title" %>
+				</div>
+				<div class="card">
+					<%= link_to 'Contact Me', contact_path, class: "card-title" %>
+				</div>
 			</div>
 		</section>
 	</div>

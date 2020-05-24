@@ -14,16 +14,18 @@
 				<% end %>
 
 	<!-- Add options for administration of website with show, edit, destroy actions and add button for new project. -->
-				<%= link_to 'Show', project_path(p) %>
-				<%= link_to 'Edit', edit_project_path(p) %>
-				<%= link_to 'Delete', project_path(p), method: :delete, data: { confirm: 'Are you sure?' } %>
+				<% if current_user.admin %>
+					<%= link_to 'Show', project_path(p), class: "btn btn-info" %>
+					<%= link_to 'Edit', edit_project_path(p), class: "btn btn-success" %>
+					<%= link_to 'Delete', project_path(p), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+				<% end %>
 			</div>
 		<% end %>
 		<br />
 
 		<!-- Visible only to administrator -->
 		<% if current_user.admin %>
-			<%= link_to 'New Project', new_project_path %>
+			<%= link_to 'New Project', new_project_path, class: "btn btn-success" %>
 		<% end %>
 	</div>
 </div>

@@ -3,5 +3,18 @@
 
 	<%= render 'form', project: @project %>
 
+	<!-- Fields for uploading Screenshots to the project -->	
+	<div class="screenshots-gallery">
+		<p>Screenshots</p>
+		<div class="screenshot">
+			<% @project.screenshots.each do |ss| %>
+				<h3><%= ss.title %></h3>
+				<%= image_tag ss.image, width: 400 %>
+			<% end %>
+		</div>
+	</div>
+
+	<%= link_to 'Add or Edit Screenshots', project_screenshots_path(@project), class: "btn btn-info" %> 
+
 	<%= link_to 'Back', projects_path %>
 </div>
