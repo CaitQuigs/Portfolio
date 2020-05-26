@@ -11,7 +11,14 @@ module CarouselHelper
 
 		def html
 			content = safe_join([indicators, slides, controls])
-			content_tag(:div, content, id: uid, class: 'carousel slide')
+			options = {
+				id: uid,
+				class: 'carousel slide',
+				data: {
+					ride: 'carousel'
+				}
+			}
+			content_tag(:div, content, options)
 		end
 
 		private
@@ -26,9 +33,9 @@ module CarouselHelper
 
 		def indicator_tag(index)
 			options = {
-				class: (index.zero? ? 'active' : ''),
+				class: (index.zero? ? 'active' : nil ),
 				data: {
-					target: uid,
+					target: "##{uid}",
 					slide_to: index
 				}
 			}
@@ -43,24 +50,40 @@ module CarouselHelper
 
 		def slide_tag(image, is_active)
 			options = {
-				class: (is_active ? 'item active' : 'item'),
+				class: (is_active ? 'carousel-item active' : 'carousel-item'),
 			}
 
 			content_tag(:div, image_tag(image), options)
 		end
 
 		def controls
-			safe_join([control_tag('left'), control_tag('right')])
+			safe_join([control_tag('prev'), control_tag('next')])
 		end
 
 		def control_tag(direction)
 			options = {
-				class: "#{direction} carousel-control",
-				data: { slide: direction == 'left' ? 'prev' : 'next' }
+				class: "carousel-control-#{direction}",
+				role: "button",
+				data: { 
+					slide: direction
+				}
 			}
+			control = link_to((control_span_1(direction) + control_span_2(direction)), "##{uid}", options)
+		end
 
-			icon = content_tag(:i, '', class: "glyphicon glyphicon-chevron-#{direction}")
-			control = link_to(icon, "##{uid}", options)
+		def control_span_1(direction)
+			span_1_options = {
+				class: "carousel-control-#{direction}-icon",
+				aria: {
+					hidden: "true"
+				}
+			}
+			span_1 = content_tag(:span, '', span_1_options)
+		end
+
+		def control_span_2(direction)
+			span_2_label = (direction == 'prev' ? 'Previous' : 'Next')
+			span_2 = content_tag(:span, "#{span_2_label}", class: 'sr-only')
 		end
 	end
 end

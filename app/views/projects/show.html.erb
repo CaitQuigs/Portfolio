@@ -4,10 +4,10 @@
 	<p>Description: <%= @project.description %></p>
 	<p>Technology Stack: <%= @project.tech_stack %></p> 
 	<p>Deployment Location: <%= @project.deployment %></p>
+	
 	<div class="screenshots-gallery">
-
 	<!-- Screenshot Carousel -->
-
+	<%= carousel_for(@project.screenshot_urls) %>
 	</div>
 
 	<div>

@@ -20,7 +20,7 @@
 				<td><%= ss.id %></td>
 				<td><%= ss.title %></td>
 				<td><%= image_tag ss.image, width: 100 %></td>
-				<td><%= @project.name %></td>
+				<td><%= ss.project.name %></td>
 				<td><%= link_to 'Show', project_screenshot_path(@project, ss), class: "btn btn-info" %></td>
 				<td><%= link_to 'Edit', edit_project_screenshot_path(@project, ss), class: "btn btn-success" %></td>
 				<td><%= link_to 'Delete', project_screenshot_path(@project, ss), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
@@ -29,6 +29,8 @@
 		</tbody>
 	</table>
 
-
-	<p><%= link_to 'Add a new screenshot', new_project_screenshot_path(@project), class: "btn btn-success" %></p>
+	<div class="btn-group">
+	<%= link_to 'Add a new screenshot', new_project_screenshot_path(@project), class: "btn btn-success" %>
+		<%= link_to 'Return to Project', project_path(@project), class: "btn btn-outline-success" %>
+	</div>
 </div>

@@ -19,12 +19,17 @@ class Project < ApplicationRecord
 
 	has_many :project_tags
 	has_many :tags, through: :project_tags
-	has_many :screenshots, inverse_of: :project, dependent: :destroy
+	has_many :screenshots, dependent: :destroy
 
 	accepts_nested_attributes_for :screenshots, allow_destroy: true
 
 	def screenshot_urls
-# call project, then screenshots associated with project, then image within each screenshot. Then url, add to urls array
+		screenshot_urls = []
+		self.screenshots.each do |screenshot|
+			ss_url = Rails.application.routes.url_helpers.rails_blob_path(screenshot.image, only_path: true)
+			screenshot_urls.push(ss_url)
+		end
+		return screenshot_urls
 	end
 
 

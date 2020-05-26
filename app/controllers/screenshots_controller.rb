@@ -12,14 +12,14 @@ class ScreenshotsController < ApplicationController
   end
 
   def new
-  	@screenshot = Screenshot.new
+  	@screenshot = @project.screenshots.build
   end
 
   def edit
   end
 
   def create
-  	@screenshot = @project.screenshots.new(screenshot_params)
+  	@screenshot = @project.screenshots.build(screenshot_params)
 	  	if @screenshot.save
   		  redirect_to project_screenshots_path(@project)
         flash[:success] = "Screenshot was successfully created."
@@ -31,7 +31,7 @@ class ScreenshotsController < ApplicationController
 
   def update
 	  if @screenshot.update(screenshot_params)
-  		redirect_to project_screenshot_path(@project, @screenshot)
+  		redirect_to project_screenshot_path(@project)
       flash[:success] = "Screenshot was successfully updated."
   	else
       flash[:error] = @screenshot.errors.full_messages

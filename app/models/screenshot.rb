@@ -19,12 +19,15 @@
 class Screenshot < ApplicationRecord
   belongs_to :project
   validates :title, presence: true, length: { minimum: 7 }
-  validates :project, presence: true
   
   has_one_attached :image
 
   # Image formatting methods
   def optimized_image(image, x, y)
   	return image.variant(resize_to_fill: [x, y]).processed
+  end
+
+  def thumbnail(image)
+  	return image.variant(resize_to_fill: [300, 200]).processed
   end
 end
