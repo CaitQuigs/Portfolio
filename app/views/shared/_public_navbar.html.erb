@@ -1,25 +1,25 @@
 <header>
-	<nav class="navbar navbar-expand-md navbar-dark flex-md-row bg-dark">
-		<div class="navbar-nav-scroll">
-			<div class="navbar-brand mr-auto align-items-center">
-				<%= image_tag 'logo.png', class: "d-inline-block nav-logo" %>
-				<h3 class="navbar-text d-inline-block">Caitlin Quigley</h3>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-lg">
+		<div class="navbar-nav">
+			<div class="navbar-brand mr-auto">
+				<%= image_tag 'logo.png', class: "d-inline-block nav-logo rounded-lg my-auto mx-2" %>
+				<h3 class="navbar-text d-inline-block align-middle mx-2">Caitlin Quigley</h3>
 			</div>
 		</div>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     	<span class="navbar-toggler-icon"></span>
   	</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav nav-pills nav-justified flex ml-auto">
-				<li class="nav-item"><%= link_to 'Home', root_path, class: "nav-link" %></li>
-				<li class="nav-item"><%= link_to 'About Me', about_path, class: "nav-link" %></li>
-				<li class="nav-item"><%= link_to 'My Work', projects_path, class: "nav-link" %></li>
-				<li class="nav-item"><%= link_to 'Contact Me', contact_path, class: "nav-link" %></li>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item text-nowrap"><%= link_to 'Home', root_path, class: "nav-link" %></li>
+				<li class="nav-item text-nowrap"><%= link_to 'About Me', about_path, class: "nav-link" %></li>
+				<li class="nav-item text-nowrap"><%= link_to 'My Work', projects_path, class: "nav-link" %></li>
+				<li class="nav-item text-nowrap"><%= link_to 'Contact Me', contact_path, class: "nav-link" %></li>
+				<% if user_signed_in? %>
+					<li class="nav-item text-nowrap"><%= link_to current_user.email, edit_user_registration_path, class: "nav-link" %></li>
+					<li class="nav-item text-nowrap"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+				<% end %>
 			</ul>
-			<% if user_signed_in? %>
-				<%= link_to current_user.email, edit_user_registration_path %> | 
-				<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-			<% end %>
 		</div>
 	</nav>
 </header>

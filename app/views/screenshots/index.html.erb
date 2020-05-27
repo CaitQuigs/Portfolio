@@ -19,7 +19,7 @@
 			<tr>
 				<td><%= ss.id %></td>
 				<td><%= ss.title %></td>
-				<td><%= image_tag ss.image, width: 100 %></td>
+				<td><%= image_tag ss.image, width: 150 %></td>
 				<td><%= ss.project.name %></td>
 				<td><%= link_to 'Show', project_screenshot_path(@project, ss), class: "btn btn-info" %></td>
 				<td><%= link_to 'Edit', edit_project_screenshot_path(@project, ss), class: "btn btn-success" %></td>

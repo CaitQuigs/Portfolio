@@ -28,6 +28,6 @@ class Screenshot < ApplicationRecord
   end
 
   def thumbnail(image)
-  	return image.variant(resize_to_fill: [300, 200]).processed
+  	return image.variant(resize_to_fill: [400, 225]).processed
   end
 end

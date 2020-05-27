@@ -1,27 +1,45 @@
-<div class="jumbotron">
-	<h1 class="home title">Hi, I'm Caitlin.</h1>
+<div id="background-1">
+	<h1 class="home display-1">Hi, I'm Caitlin.</h1>
 	<h2 class="home display-3">I would love to build your website.</h2>
 </div>
-
-<div class="container-fluid">
-	<section class="shadow p-3 mb-5 bg-white" id="mission">
-		<h3 class="text-center">I develop full stack applications with a range of technologies.</h3>
-		<p>Responsive, Accessible</p>
-	</section>
-
-	<div class="container">
-		<section class="links">
-			<div class="card-deck">
-				<div class="card">
-					<%= link_to 'About me', about_path, class: "card-title" %>
-				</div>
-				<div class="card">
-					<%= link_to 'My Work', projects_path, class: "card-title" %>
-				</div>
-				<div class="card">
-					<%= link_to 'Contact Me', contact_path, class: "card-title" %>
-				</div>
-			</div>
-		</section>
-	</div>
+<div class="shadow p-3 bg-white" id="mission">
+	<h1 class="home home-title">I develop full stack applications with a range of technologies.</h1>
+	<p class="home" id="home-text">Responsive, Accessible, Dynamic</p>
 </div>
+<div id="background-2">
+
+</div>
+
+<section class="links">
+	<div class="container-fluid">
+		<div class="row justify-content-around">
+			<%= link_to about_path, class: 'link-box card w-25 shadow' do %>
+					<div class="card-body mx-auto">
+						<span class="fa-stack fa-4x my-3">
+							<i class="fas fa-circle fa-stack-2x"></i>
+							<i class="fas fa-book-open fa-stack-1x fa-inverse"></i>
+						</span>
+						<h4 class="card-title my-3">About Me</h4>
+					</div>
+			<% end %>
+			<%= link_to projects_path, class: 'link-box card w-25 shadow' do %>
+				<div class="card-body mx-auto">
+					<span class="fa-stack fa-4x my-3">							
+						<i class="fas fa-circle fa-stack-2x"></i>
+						<i class="fas fa-laptop-code fa-stack-1x fa-inverse"></i>
+					</span>
+					<h4 class="card-title my-3">My Work</h4>
+				</div>
+			<% end %>
+			<%= link_to contact_path, class: 'link-box card w-25 shadow' do %> 
+				<div class="card-body mx-auto">
+					<span class="fa-stack fa-4x my-3">
+						<i class="fas fa-circle fa-stack-2x"></i>
+						<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+					</span>
+					<h4 class="card-title my-3">Contact Me</h4>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</section>

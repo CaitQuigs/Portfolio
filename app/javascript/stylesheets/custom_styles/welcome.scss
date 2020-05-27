@@ -1,35 +1,97 @@
 @import 'custom_fonts';
+$parallax-height: 100vh;
+$center-margin: 0px auto;
 
-.container {
-	width: 95%;
-	margin: 0 auto;
-	display: block;
+@mixin background-size($size) {
+	background-size: $size;
+	-webkit-background-size: $size;
+	-moz-background-size: $size;
+	-o-background-size: $size;
+}
+@mixin parallax-background($file) {
+	background: url($file) no-repeat center center fixed;
+	@include background-size(cover);
 }
 
-.jumbotron {
-	width: 100%;
-	height: 900px;
-	background: url('../images/nyc_city_pic.jpg') no-repeat center center fixed;
-	background-size: cover;
-	display: flex;
+html, body {
+	margin: 0;
+	padding: 0;
 }
 
 .home {
-	font-family: 'PoppinsBold';
-	font-color: #FFF;
+	font-color: $white;
 }
 
-h1.home {
-	font-size: 5em;
-	display: block;
+#background-1 {
+	width: 100%;
+	height: $parallax-height;
+	perspective: 1px;
+	transform: translateZ(-1px);
+	overflow-x: hidden;
+	overflow-y: auto;
+	@include parallax-background('../images/nyc_city_pic.jpg');
 }
 
-h2.home {
-	font-size: 3em;	
-	display: block;
+#mission {
+	margin: $center-margin;
+	padding: 5em 0;
+}
+
+#background-2 {
+	width: 100%;
+	height: $parallax-height;
+	perspective: 1px;
+	transform: translateZ(-1px);
+	overflow-x: hidden;
+	overflow-y: auto;
+	@include parallax-background('../images/code_pic_1.jpg');
+}
+
+
+#background-1, #background-2 {
+	h1 {
+		letter-spacing: 0.06em;
+		opacity: 0.9;
+		text-align: center;
+		transform: translateZ(-2px);
+			}
+	h2 {
+		letter-spacing: 0.06em;
+		opacity: 0.9;
+		text-align: center;
+		transform: translateZ(-2px);
+	}
+}
+
+#home-text {
+	width: 70%;
+	padding: 5%;
+	margin: $center-margin;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 200;
+	line-height: 1.4;
 }
 
 .links {
-	display: flex;
-	justify-content: space-between;
+	padding: 8em 0;
+}
+
+a.link-box {
+	color: black;
+	text-decoration: none;
+	&:hover {
+		color: black;
+		text-decoration: underline;
+		border: .25em solid black;
+	}
+}
+
+.card-title {
+	text-align: center;
+}
+
+#wrigley {
+	width: 40%;
+	height: auto;
 }

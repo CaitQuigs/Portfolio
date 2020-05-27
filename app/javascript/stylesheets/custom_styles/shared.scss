@@ -9,20 +9,19 @@ nav {
 img.nav-logo {
 	width: 40px;
 	height: 40px;
-	margin: 20px;	
 	display: inline-block;
 }
 
 h3.nav-brand {
-	font-family: 'PoppinsBold', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-size: 1.75em;
-	}
+}
 
 footer {
 	background-color: #424242;
 	color: #FFF;
 	width: 100%;
-	height: 150px;
+	height: 6.5em;
 	position: relative;
 	bottom: 0;
 }
@@ -31,4 +30,16 @@ footer {
 	width: 100%;
 	text-align: center;
 	margin-top: 20px;
+}
+
+.fa-github-square:hover {
+	color: $cyan;
+}
+
+.fa-linkedin:hover {
+	color: $cyan;
+}
+
+.fa-instagram-square:hover {
+	color: $cyan;
 }

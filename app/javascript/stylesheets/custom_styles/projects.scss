@@ -1,3 +1,25 @@
-a {
-	color: #000;
+.project {
+	text-align: center;
 }
+
+.description {
+	text-align: justify;
+}
+
+.project-thumbnail {
+	width: 400px;
+	height: 225px;
+	margin: .75em auto;
+}
+
+.project-box {
+	border: 3px solid black;
+	border-radius: 1px;
+	width: 600px;
+}
+
+.carousel-image {
+	width: 800px;
+	height: auto;
+}
+

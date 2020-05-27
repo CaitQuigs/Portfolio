@@ -1,20 +1,20 @@
 <div class="container-fluid">
-	<h1 class="projects title">Some of My Work</h1>
+	<h1 class="project title">Some of My Work</h1>
 
 	<!--  This will be cards with each project that will turn to monos onclick. Mono will have a carousel of screenshots from project -->
-	<div class="container">
+	<div class="d-flex flex-row justify-content-around flex-wrap">
 		<% @projects.each do |p| %>
 			<div class="project-box">
-				<p><%= p.id %></p>
-				<p><%= p.name %></p>
-				<p><%= p.description %></p>
-				<p><%= p.tech_stack %></p>
+				<%= image_tag p.thumbnail, class: "project-thumbnail border border-dark rounded-sm" %>
+				<p class="project name"><%= p.name %></p>
+				<p class="project description"><%= p.description %></p>
+				<p class="project tech"><%= p.tech_stack %></p>
 				<% if p.deployment %>
-					<%= link_to 'See it here', p.deployment %> <br />
+					<%= link_to 'See it here', p.deployment, class: "project link" %> <br />
 				<% end %>
 
 	<!-- Add options for administration of website with show, edit, destroy actions and add button for new project. -->
-				<% if current_user.admin %>
+				<% if current_user && current_user.admin %>
 					<%= link_to 'Show', project_path(p), class: "btn btn-info" %>
 					<%= link_to 'Edit', edit_project_path(p), class: "btn btn-success" %>
 					<%= link_to 'Delete', project_path(p), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
@@ -24,7 +24,7 @@
 		<br />
 
 		<!-- Visible only to administrator -->
-		<% if current_user.admin %>
+		<% if current_user && current_user.admin %>
 			<%= link_to 'New Project', new_project_path, class: "btn btn-success" %>
 		<% end %>
 	</div>

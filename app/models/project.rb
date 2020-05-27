@@ -32,6 +32,11 @@ class Project < ApplicationRecord
 		return screenshot_urls
 	end
 
+	def thumbnail
+		@screenshot = self.screenshots.first
+		return @screenshot.image
+	end
+
 
 
 	

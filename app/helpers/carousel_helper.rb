@@ -1,6 +1,8 @@
 module CarouselHelper
 	def carousel_for(images)
-		Carousel.new(self, images).html
+		unless images == []		
+			Carousel.new(self, images).html
+		end
 	end
 
 	class Carousel
@@ -50,7 +52,7 @@ module CarouselHelper
 
 		def slide_tag(image, is_active)
 			options = {
-				class: (is_active ? 'carousel-item active' : 'carousel-item'),
+				class: (is_active ? 'carousel-image carousel-item active' : 'carousel-image carousel-item'),
 			}
 
 			content_tag(:div, image_tag(image), options)

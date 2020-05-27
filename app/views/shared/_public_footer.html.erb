@@ -1,6 +1,28 @@
-<footer class="footer mt-auto py-3">
+<footer class="footer mt-auto py-4">
 	<div class="container">
-		<p>&copy <%= Date.current.year %> Quigley Web Development, LLC</p>
-	<!-- Add social media icons -->
+		<div class="row align-items-center">
+			<div class="col-6">
+				<p id="footer-text">&copy <%= Date.current.year %> Quigley Web Development, LLC</p>
+			</div>
+			<div class="col-6 my-3 my-lg-0">
+				<ul class="list-inline">
+					<li class="list-inline-item">
+						<%= link_to 'https://www.github.com/CaitQuigs', target: "_blank", class: 'btn-soc-med mx-2' do %>
+							<i class="fab fa-github-square fa-inverse fa-3x"></i>
+						<% end %>
+					</li>
+					<li class="list-inline-item">
+						<%= link_to 'https://www.linkedin.com/in/caitlin-quigley-6301485/', target: "_blank", class: 'btn-soc-med mx-2' do %>				
+							<i class="fab fa-linkedin fa-inverse fa-3x"></i>
+						<% end %>
+					</li>
+					<li class="list-inline-item">
+						<%= link_to 'https://www.instagram.com/caitlin_quigs/', target: "_blank", class: 'btn-soc-med mx-2' do %>
+							<i class="fab fa-instagram-square fa-3x"></i>
+						<% end %>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </footer>

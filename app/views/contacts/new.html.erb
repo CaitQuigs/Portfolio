@@ -1,39 +1,60 @@
 <div class="container">
-		<h1 class="text-center my-2">Contact Me</h1>
+		<h1 class="title">Contact Me</h1>
 	<%= form_with model: @contact, local: true, class: "contact-form" do |form| %>
-		<div class="form-group">
-			<div>
-				<%= form.label :name %>
-				<%= form.text_field :name, class: "form-control" %>
+		<div>
+			<div class="form-group row">
+				<%= form.label :name, class: "col-2 col-form-label" %>
+				<div class="col-10">
+					<%= form.text_field :name, class: "form-control" %>
+				</div>
 			</div>
-			<div class="form-group">
-				<%= form.label :company %>
+			<div class="form-group row">
+				<%= form.label :company, class: "col-2 col-form-label" %>
+				<div class="col-10">
 				<%= form.text_field :company, class: "form-control" %>
+				</div>
 			</div>
-			<div class="form-group">
-				<%= form.label :email %>
-				<%= form.email_field :email, class: "form-control" %>
+			<div class="form-group row">
+				<%= form.label :email, "Email Address", class: "col-2 col-form-label" %>
+				<div class="col-10">
+					<%= form.email_field :email, class: "form-control" %>
+				</div>
 			</div>
-			<div class="form-group">
-				<%= form.label :phone %>
-				<%= form.telephone_field :phone, class: "form-control" %>
+			<div class="form-group row">
+				<%= form.label :phone, "Phone Number", class: "col-2 col-form-label" %>
+				<div class="col-10">
+					<%= form.telephone_field :phone, class: "form-control" %>
+				</div>
 			</div>
-			<div class="form-check form-check-inline">
-				<p>How do you prefer to be contacted?</p>
-				<%= form.radio_button :method_of_contact, "email", class: "form-check form-check-inline" %><%= form.label :method_of_contact_email, 'Email', class: "form-check-label" %>
-				<%= form.radio_button :method_of_contact, "phone", class: "form-check form-check-inline" %><%= form.label :method_of_contact_phone, 'Phone', class: "form-check-label" %>
+			<div class="form-group row">
+				<p class="col-6 col-form-label">How do you prefer to be contacted?</p>
+				<div class="col-3">
+					<%= form.radio_button :method_of_contact, "email", class: "form-check form-check-inline" %><%= form.label :method_of_contact_email, 'Email', class: "form-check-label" %>
+				</div>
+				<div class="col-3">
+					<%= form.radio_button :method_of_contact, "phone", class: "form-check form-check-inline" %><%= form.label :method_of_contact_phone, 'Phone', class: "form-check-label" %>
+				</div>
 			</div>
-			<div class="form-group">
-				<p>Please pick the industry which best represents your company:</p>
-				<p><%= form.select :industry, options_for_select(@industries), { include_blank: "Select Your Industry" }, { class: "custom-select" } %> </p>
+			<div class="form-group row">
+				<p class="col-6 col-form-label">Please pick the industry which best represents your company:</p>
+				<div class="col-6">
+					<%= form.select :industry, options_for_select(@industries), { include_blank: "Select Your Industry" }, { class: "custom-select" } %>
+				</div>
 			</div>
-			<div class="form-group">
-				<%= form.label :work_description %>
-				<%= form.text_area :work_description, class: "form-control" %>
+			<div class="form-group row">
+				<%= form.label :work_description, "Please describe your project:", class: "col-2 col-form-label" %>
+				<div class="col-10">
+					<%= form.text_area :work_description, class: "form-control" %>
+				</div>
 			</div>
-			<p>
-				<%= form.submit "Contact Me!", class: "btn btn-outline-dark btn-lg" %>
-			</p>
+			<div class="text-center">
+				<%= form.submit "Contact Me!", class: "btn btn-outline-dark btn-lg my-4" %>
+			</div>
 		</div>
 	<% end %>
+	<div class="text-center">
+		<% if current_user && current_user.admin %>
+				<%= link_to 'Contact List', contacts_path, class: "btn btn-outline-info" %>
+		<% end %>
+	</div>
 </div>
