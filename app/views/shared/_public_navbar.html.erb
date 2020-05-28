@@ -16,8 +16,8 @@
 				<li class="nav-item text-nowrap"><%= link_to 'My Work', projects_path, class: "nav-link text-light px-3" %></li>
 				<li class="nav-item text-nowrap"><%= link_to 'Contact Me', contact_path, class: "nav-link text-light px-3" %></li>
 				<% if user_signed_in? %>
-					<li class="nav-item text-nowrap"><%= link_to current_user.email, edit_user_registration_path, class: "nav-link" %></li>
-					<li class="nav-item text-nowrap"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+					<li class="nav-item text-nowrap"><%= link_to current_user.email, edit_user_registration_path, class: "nav-link text-light" %></li>
+					<li class="nav-item text-nowrap"><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link text-light" %></li>
 				<% end %>
 			</ul>
 		</div>
