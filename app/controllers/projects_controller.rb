@@ -1,13 +1,21 @@
 class ProjectsController < ApplicationController
-	before_action :set_project, only: [:show, :edit, :update, :destroy]
-	before_action :authenticate_user!, except: [:index, :show]
-	before_action :is_admin!, except: [:index, :show]
+	before_action :set_project, only: [:show, :show_project_modal, :edit, :update, :destroy]
+	before_action :authenticate_user!, except: [:index, :show, :show_project_modal]
+	before_action :is_admin!, except: [:index, :show, :show_project_modal]
 
 	def index
 		@projects = Project.all
 	end
 
 	def show
+	end
+
+	def show_project_modal
+		@projects = Project.all
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 
 	def new

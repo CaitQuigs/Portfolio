@@ -1,31 +1,29 @@
 <div class="container-fluid">
 	<h1 class="project title">Some of My Work</h1>
 
-	<!--  This will be cards with each project that will turn to monos onclick. Mono will have a carousel of screenshots from project -->
-	<div class="d-flex flex-row justify-content-around flex-wrap">
-		<% @projects.each do |p| %>
+	<!--  Project cards with Modal button. Modal will have a carousel of screenshots from project -->
+	<div class="d-flex flex-row justify-content-center flex-wrap">
+		<% @projects.each do |proj| %>
 			<div class="project-box">
-				<%= image_tag p.thumbnail, class: "project-thumbnail border border-dark rounded-sm" %>
-				<p class="project name"><%= p.name %></p>
-				<p class="project description"><%= p.description %></p>
-				<p class="project tech"><%= p.tech_stack %></p>
-				<% if p.deployment %>
-					<%= link_to 'See it here', p.deployment, class: "project link" %> <br />
-				<% end %>
+				<%= image_tag proj.thumbnail, class: "project-thumbnail" %>
+				<p class="project name"><%= proj.name %></p>
+				
+				<!-- Button trigger for modal -->
+				<%= link_to 'Learn More', "project-#{proj.id}Modal", data: { toggle: "modal", target: "#project-#{proj.id}Modal" }, class: "btn btn-info" %>
 
-	<!-- Add options for administration of website with show, edit, destroy actions and add button for new project. -->
-				<% if current_user && current_user.admin %>
-					<%= link_to 'Show', project_path(p), class: "btn btn-info" %>
-					<%= link_to 'Edit', edit_project_path(p), class: "btn btn-success" %>
-					<%= link_to 'Delete', project_path(p), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+ 				<% if current_user && current_user.admin %>
+					<%= link_to 'Show', project_path(proj), class: "btn btn-info" %>
+					<%= link_to 'Edit', edit_project_path(proj), class: "btn btn-success" %>
+					<%= link_to 'Delete', project_path(proj), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 				<% end %>
 			</div>
 		<% end %>
-		<br />
-
-		<!-- Visible only to administrator -->
-		<% if current_user && current_user.admin %>
-			<%= link_to 'New Project', new_project_path, class: "btn btn-success" %>
-		<% end %>
 	</div>
+			
+	<% if current_user && current_user.admin %>
+		<%= link_to 'New Project', new_project_path, class: "btn btn-success" %>
+	<% end %>
 </div>
+
+<!-- Partial Call for Modal -->
+<%= render partial: 'project_modal' %>

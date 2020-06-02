@@ -26,7 +26,6 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.8'
-gem 'mini_magick'
 
 # Custom Gems
 gem 'devise', '~> 4.7.1'

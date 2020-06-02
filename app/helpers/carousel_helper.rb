@@ -55,7 +55,7 @@ module CarouselHelper
 				class: (is_active ? 'carousel-image carousel-item active' : 'carousel-image carousel-item'),
 			}
 
-			content_tag(:div, image_tag(image), options)
+			content_tag(:div, image_tag(image, class: "img-responsive"), options)
 		end
 
 		def controls

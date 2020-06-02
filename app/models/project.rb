@@ -23,21 +23,20 @@ class Project < ApplicationRecord
 
 	accepts_nested_attributes_for :screenshots, allow_destroy: true
 
-	def screenshot_urls
-		screenshot_urls = []
+	def carousel_urls
+		carousel_urls = []
 		self.screenshots.each do |screenshot|
-			ss_url = Rails.application.routes.url_helpers.rails_blob_path(screenshot.image, only_path: true)
-			screenshot_urls.push(ss_url)
+			sized_image = screenshot.image.variant(resize_to_fit: [800, 450])
+			carousel_url = Rails.application.routes.url_helpers.rails_representation_path(sized_image, only_path: true)
+			carousel_urls.push(carousel_url)
 		end
-		return screenshot_urls
+		return carousel_urls
 	end
 
 	def thumbnail
 		@screenshot = self.screenshots.first
-		return @screenshot.image
+		thumbnail = @screenshot.image.variant(resize_to_fit: [400, 225])
+		return thumbnail
 	end
 
-
-
-	
 end
