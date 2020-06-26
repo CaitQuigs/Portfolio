@@ -1,40 +1,62 @@
 <div class="container">
-	<h1 class="title">About Me</h2>
-
-	<p class="text-center my-1">I recently moved to New York from Atlanta with my dog, Wrigley.</p>
-	<div class="text-center">
-		<%= image_tag 'Wrigley.jpg', class: "rounded my-1", id: "wrigley" %>
+	<div class="row">
+		<h1 class="title">About Me</h1>
+	</div>
+	<div class="row" id="about-me">
+		<div class="col-4">
+			<div id="cyan-circle">
+				<%= image_tag 'wrigley_portrait.jpg', id: "wrigley" %>
+			</div>
+		</div>
+		<div class="col-8">
+			<p class="text-center my-1">I recently moved to New York from Atlanta with my dog, Wrigley.</p>
+		</div>
+	</div>
+	<div class="row" id="coding-background">
+		<div class="col-8">
+			<p  class="text-center">During the summer of 2017, I attended the Ruby on Rails Code Immersion course at Tech Talent South. Since then, I have also learned the MERN stack through Codecademy Pro. I am currently available for freelance work in either stack.</p>
+		</div>
+		<div class="col-4">
+		</div>
+	</div>
+	<div class="row" id="skills">
+		<div class="col-6">
+			<h3 class="text-center">Skills</h3>
+		</div>
+		<div class="col-3">
+			<ul>
+				<li>HTML</li>
+				<li>CSS</li>
+				<li>Sass</li>
+				<li>Bootstrap</li>
+				<li>Ruby</li>
+				<li>Ruby on Rails</li>
+			</ul>
+		</div>
+		<div class="col-3">
+			<ul>
+				<li>JavaScript</li>
+				<li>React.js</li>
+				<li>Express.js</li>
+				<li>Node.js</li>
+				<li>PostgreSQL</li>
+				<li>MySQL</li>
+				<li>SQLite</li>
+			</ul>
+		</div>
 	</div>
 
-	<p  class="text-center my-1">During the summer of 2017, I attended the Ruby on Rails Code Immersion course at Tech Talent South. Since then, I have also learned the MERN stack through Codecademy Pro.</p>
-
-	<h3 class="text-center">Skills</h3>
-	<ul>
-		<li>HTML</li>
-		<li>CSS</li>
-		<li>Sass</li>
-		<li>Bootstrap</li>
-		<li>Ruby</li>
-		<li>Ruby on Rails</li>
-		<li>JavaScript</li>
-		<li>React.js</li>
-		<li>Express.js</li>
-		<li>Node.js</li>
-		<li>PostgreSQL</li>
-		<li>MySQL</li>
-		<li>SQLite</li>
-	</ul>
-
-	<h3 class="text-center">Interests</h3>
-	<ul>
-		<li>Life-long tennis player</li>
-		<li>Avid Science Fiction reader</li>
-		<li>Constant podcast listener</li>
-		<li>Frequent Home Cook</li>
-				<ul>
-					<li>American cuisine</li>
-					<li>French cuisine</li>
-					<li>Italian food</li>
-				</ul>
-	</ul>
+	<div class="row" id="other-interests">
+		<div class="col-6">
+			<h3 class="text-center">Other Interests</h3>
+		</div>
+		<div class="col-6">
+			<ul>
+				<li>Life-long tennis player</li>
+				<li>Avid Science Fiction reader</li>
+				<li>Constant podcast listener</li>
+				<li>Frequent home cook</li>
+			</ul>
+		</div>
+	</div>
 </div>

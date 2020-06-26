@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
 	before_action :set_industries
-	before_action :authenticate_user!, except: [:new, :create]
-	before_action :is_admin!, except: [:new, :create]
+	before_action :authenticate_user!, except: [:new, :create, :contact_confirmation]
+	before_action :is_admin!, except: [:new, :create, :contact_confirmation]
 
   def index
   	@contacts = Contact.all
@@ -48,6 +48,9 @@ class ContactsController < ApplicationController
 		@contact.destroy
 		redirect_to contacts_path
 		flash[:notice] = "Contact was successfully destroyed."
+	end
+
+	def contact_confirmation
 	end
 
 	private

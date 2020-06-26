@@ -1,20 +1,18 @@
 <% @projects.each do |project| %>
-	<div class="modal fade portfolio-modal" id="project-#{project.id}Modal" tabindex="-1" role="dialog" aria-labelledby="project-#{project.id}ModalLabel" aria-hidden="true">	
+	<div class="modal fade portfolio-modal" id="project-<%= project.id %>Modal" tabindex="-1" role="dialog" aria-labelledby="project-<%= project.id %>ModalLabel" aria-hidden="true">	
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-				<div class="modal-header">
-				  <h5 class="modal-title" id="project-#{project.id}ModalLabel"><%= project.name %></h5>
-				</div>
-				<div class="modal-body">
-					<div class="screenshot-gallery">
-						<%= carousel_for(project.carousel_urls %>
+			  	<div class="modal-body">
+			 		<h5 class="modal-title" id="project-<%= project.id %>ModalLabel"><%= project.name %></h5>
+					<div class="screenshots-gallery shadow">
+						<%= carousel_for(project.carousel_urls) %>
 					</div>
-					<p><%= project.description %></p>
-					<p>Technologies used: <%= project.tech_stack %></p>
-					<%= link_to_unless(project.deployment.nil?, 'See it here', project.deployment, class: "project-link") %>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-info" data-dismiss="modal"><span aria-hidden="true">&times;</span>Close</button>
+					<p class="project-description text-center"><%= project.description %></p>
+					<p class="text-center">Technologies used: <%= project.tech_stack %></p>
+					<% if project.deployment.nil? %>
+						<%= link_to('See it here', project.deployment, class: "btn btn-info-outline project-link") %>
+					<% end %>
+					<button class="btn btn-info btn-close" data-dismiss="modal" type="button"><span>&times;</span>  Close</button>
 				</div>
 			</div>
 		</div>

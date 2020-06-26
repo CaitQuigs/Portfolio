@@ -87,8 +87,6 @@ Rails.application.routes.draw do
   get 'home' => 'welcome#home'
   get 'about' =>'welcome#about'
 
-
-
   resources :projects do
     resources :screenshots
   end

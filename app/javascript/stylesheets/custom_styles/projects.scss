@@ -1,20 +1,52 @@
-.project {
+.project-box {
+	border: 1px solid black;
+	width: 40vw;
 	text-align: center;
-}
-
-.description {
-	text-align: justify;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .project-thumbnail {
-	margin: .75em auto;
-	border: 1px solid black;
+	margin: 2vh auto;
+	border: 0.5vh solid $white;
 }
 
-.project-box {
-	border: 1px solid black;
-	width: 600px;
+.project-name {
+	font-size: 2em;
 	text-align: center;
+	margin-bottom: .25em;
+}
+
+.btn-modal {
+	margin: 2vh 0;
+}
+
+/* Modal Styles */
+.modal {
+
+}
+
+.modal-content {
+	max-width: 100%;
+	text-align: center;
+	padding: 3em 2em;
+}
+
+.modal-title {
+	font-size: 3em;
+	margin-bottom: 1em;}
+
+.screenshots-gallery {
+	max-width: 90%;
+	height: auto;
+	border: 0.5vh solid $white;
+}
+
+.project-description {
+	text-align: center;
+	margin: 2vh;
 }
 
 .project-link {
@@ -25,8 +57,7 @@
 		}
 }
 
-.screenshots-gallery {
-	width: 800px;
-	height: auto;
+.slide-cover {
+	background-color: $cyan;
+	opacity: 0.5;
 }
-

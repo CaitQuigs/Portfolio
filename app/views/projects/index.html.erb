@@ -5,17 +5,21 @@
 	<div class="d-flex flex-row justify-content-center flex-wrap">
 		<% @projects.each do |proj| %>
 			<div class="project-box">
-				<%= image_tag proj.thumbnail, class: "project-thumbnail" %>
-				<p class="project name"><%= proj.name %></p>
-				
-				<!-- Button trigger for modal -->
-				<%= link_to 'Learn More', "project-#{proj.id}Modal", data: { toggle: "modal", target: "#project-#{proj.id}Modal" }, class: "btn btn-info" %>
+				<div>
+					<%= image_tag proj.thumbnail, class: "shadow project-thumbnail" %>
+					<p class="project-name"><%= proj.name %></p>
+				</div>
+				<div class="slide-cover">
+		
+					<!-- Button trigger for modal -->
+					<%= link_to 'Learn More', "project-#{proj.id}Modal", data: { toggle: "modal", target: "#project-#{proj.id}Modal" }, class: "btn btn-info btn-modal" %>
 
- 				<% if current_user && current_user.admin %>
-					<%= link_to 'Show', project_path(proj), class: "btn btn-info" %>
-					<%= link_to 'Edit', edit_project_path(proj), class: "btn btn-success" %>
-					<%= link_to 'Delete', project_path(proj), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-				<% end %>
+	 				<% if current_user && current_user.admin %>
+						<%= link_to 'Show', project_path(proj), class: "btn btn-info" %>
+						<%= link_to 'Edit', edit_project_path(proj), class: "btn btn-success" %>
+						<%= link_to 'Delete', project_path(proj), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+					<% end %>
+				</div>
 			</div>
 		<% end %>
 	</div>
