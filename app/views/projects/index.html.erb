@@ -1,32 +1,34 @@
-<div class="container-fluid">
-	<h1 class="project title">Some of My Work</h1>
+<div id="portfolio">
+	<div class="container-fluid">
+		<h1 class="project title">Some of My Work</h1>
 
-	<!--  Project cards with Modal button. Modal will have a carousel of screenshots from project -->
-	<div class="d-flex flex-row justify-content-center flex-wrap">
-		<% @projects.each do |proj| %>
-			<div class="project-box">
-				<div>
-					<%= image_tag proj.thumbnail, class: "shadow project-thumbnail" %>
-					<p class="project-name"><%= proj.name %></p>
-				</div>
-				<div class="slide-cover">
-		
-					<!-- Button trigger for modal -->
-					<%= link_to 'Learn More', "project-#{proj.id}Modal", data: { toggle: "modal", target: "#project-#{proj.id}Modal" }, class: "btn btn-info btn-modal" %>
+		<!--  Project cards with Modal button. Modal will have a carousel of screenshots from project -->
+		<div class="d-flex flex-row justify-content-around flex-wrap">
+			<% @projects.each do |proj| %>
+				<div class="project-box">
+						<!-- Button trigger for modal -->
+						<%= link_to "project-#{proj.id}Modal", data: { toggle: "modal", target: "#project-#{proj.id}Modal" }, class: "project-link" do %>
+							<div class="project-hover">
+								<p class="project-hover-contents">See Details</p>
+							</div>
+							<%= image_tag proj.thumbnail, class: "img-fluid project-thumbnail" %>
 
-	 				<% if current_user && current_user.admin %>
-						<%= link_to 'Show', project_path(proj), class: "btn btn-info" %>
-						<%= link_to 'Edit', edit_project_path(proj), class: "btn btn-success" %>
-						<%= link_to 'Delete', project_path(proj), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-					<% end %>
+						<% end %>
+						<p class="project-name"><%= proj.name %></p>
+
+		 				<% if current_user && current_user.admin %>
+							<%= link_to 'Show', project_path(proj), class: "btn btn-info" %>
+							<%= link_to 'Edit', edit_project_path(proj), class: "btn btn-success" %>
+							<%= link_to 'Delete', project_path(proj), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+						<% end %>
 				</div>
-			</div>
+			<% end %>
+		</div>
+				
+		<% if current_user && current_user.admin %>
+			<%= link_to 'New Project', new_project_path, class: "btn btn-success" %>
 		<% end %>
 	</div>
-			
-	<% if current_user && current_user.admin %>
-		<%= link_to 'New Project', new_project_path, class: "btn btn-success" %>
-	<% end %>
 </div>
 
 <!-- Partial Call for Modal -->

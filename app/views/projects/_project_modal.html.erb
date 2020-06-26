@@ -10,7 +10,7 @@
 					<p class="project-description text-center"><%= project.description %></p>
 					<p class="text-center">Technologies used: <%= project.tech_stack %></p>
 					<% if project.deployment.nil? %>
-						<%= link_to('See it here', project.deployment, class: "btn btn-info-outline project-link") %>
+						<%= link_to('See it here', project.deployment, class: "btn btn-info-outline project-deployment") %>
 					<% end %>
 					<button class="btn btn-info btn-close" data-dismiss="modal" type="button"><span>&times;</span>  Close</button>
 				</div>

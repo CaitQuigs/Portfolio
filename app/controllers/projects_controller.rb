@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
 	before_action :is_admin!, except: [:index, :show, :show_project_modal]
 
 	def index
+		@bg_class = true
 		@projects = Project.all
 	end
 

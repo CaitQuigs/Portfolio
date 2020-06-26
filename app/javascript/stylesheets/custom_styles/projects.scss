@@ -1,6 +1,6 @@
 .project-box {
-	border: 1px solid black;
-	width: 40vw;
+	background-color: $white;
+	width: 30vw;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -8,9 +8,36 @@
 	justify-content: center;
 }
 
+.project-box .project-link {
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	color: $white;
+	text-decoration: none;
+}
+
+.project-box .project-link .project-hover {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(23, 162, 184, 0.8);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity ease-in-out 0.25s;
+}
+
+.project-box .project-link .project-hover .project-hover-contents {
+	font-size: 2rem;
+	color: $white;
+}
+
+.project-box .project-link:hover .project-hover {
+	opacity: 1;
+}
+
 .project-thumbnail {
-	margin: 2vh auto;
-	border: 0.5vh solid $white;
 }
 
 .project-name {
@@ -24,40 +51,30 @@
 }
 
 /* Modal Styles */
-.modal {
-
+.portfolio-modal .modal-dialog {
+	margin: 1rem;
+	max-width: 100vw;
 }
 
-.modal-content {
-	max-width: 100%;
+.portfolio-modal .modal-content {
 	text-align: center;
 	padding: 3em 2em;
+	justify-content: center;
 }
 
-.modal-title {
+.portfolio-modal .modal-title {
 	font-size: 3em;
 	margin-bottom: 1em;}
 
-.screenshots-gallery {
-	max-width: 90%;
+.portfolio-modal .screenshots-gallery {
+	max-width: 80%;
 	height: auto;
 	border: 0.5vh solid $white;
+	margin: 2rem auto;
 }
 
-.project-description {
+.portfolio-modal .project-description {
 	text-align: center;
 	margin: 2vh;
 }
 
-.project-link {
-	color: $black;
-	text-decoration: none;
-		&:hover {
-			text-decoration: underline;
-		}
-}
-
-.slide-cover {
-	background-color: $cyan;
-	opacity: 0.5;
-}
