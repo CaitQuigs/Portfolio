@@ -1,0 +1,105 @@
+//Styling for CSS-derived Logo
+$c-color: #52B4C3;
+$q-color: #17a2b8;
+
+div#logo {
+	width: 70px;
+	height: 70px;
+	background-color: $white;
+	border: solid 0.1em $white;
+	border-radius: 5%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div#logo:hover #c-icon {
+	animation: c-spin 3s ease-in 0s 1 normal;
+}
+
+div#logo:hover	#q-icon {
+	animation: q-spin 4s linear 3s 1 normal;
+}
+
+#c-icon {
+  color: $c-color;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border-top: solid 10px $c-color;
+  border-right: solid 10px transparent;
+  border-bottom: solid 10px $c-color;
+  border-left: solid 10px $c-color;
+  animation: c-spin 3s ease-in 0s 1 normal;
+}
+
+#q-icon {
+  color: $q-color;
+  margin-top: 2px;
+  margin-left: 2px;
+  width: 40px;
+  height: 40px;
+  border: solid 10px $q-color;
+  border-radius: 100%;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  animation: q-spin 4s linear 3s 1 normal;
+}
+
+#q-icon:before {
+  content: '';
+  position: absolute;
+  top: 19px;
+  left: 12px;
+  height: 22px;
+  width: 10px;
+  background-color: $q-color;
+  -webkit-transform: rotate(-15deg);
+          transform: rotate(-15deg);
+}
+
+@keyframes c-spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes q-spin {
+	0% {
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+	}
+	5% {
+		-webkit-transform: rotate(-38deg);
+		transform: rotate(-38deg);
+	}
+	20% {
+		-webkit-transform: rotate(-95deg);
+		transform: rotate(-95deg);
+	}
+	40% {
+		-webkit-transform: rotate(-40deg);
+		transform: rotate(-40deg);
+	}
+	60% {
+		-webkit-transform: rotate(-75deg);
+		transform: rotate(-75deg);
+	}
+	75% {
+		-webkit-transform: rotate(-42deg);
+		transform: rotate(-42deg);
+	}
+	90% {
+		-webkit-transform: rotate(-60deg);
+		transform: rotate(-60deg);
+	}
+	100% {
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+	}
+}
