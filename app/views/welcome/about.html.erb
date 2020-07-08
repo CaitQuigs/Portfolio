@@ -3,24 +3,29 @@
 		<h1 class="title">About Me</h1>
 	</div>
 	<div class="row" id="about-me">
-		<div class="col-4">
+		<div class="col-4 oval-image-group">
 			<div id="cyan-circle">
-				<%= image_tag 'wrigley_portrait.jpg', id: "wrigley" %>
+				<%= image_tag 'wrigley_portrait.jpg', class: "oval-picture" %>
 			</div>
 		</div>
 		<div class="col-4">
-			<p class="text-center my-1">I recently moved to New York from Atlanta with my dog, Wrigley. We live with my boyfriend, Lyle.</p>
+			<p class="text-center my-auto">I recently moved to New York from Atlanta with my dog, Wrigley. We live with my boyfriend, Lyle, in Manhattan.</p>
 		</div>
-		<div class="col-4">
+		<div class="col-4 oval-image-group">
 			<div id="pink-circle">
+				<%= image_tag 'caitlin.jpg', class: "oval-picture" %>
 			</div>
 		</div>
 	</div>
 	<div class="row" id="coding-background">
-		<div class="col-8">
+		<div class="col-7">
 			<p  class="text-center">During the summer of 2017, I attended the Ruby on Rails Code Immersion course at Tech Talent South. Since then, I have also learned the MERN stack through Codecademy Pro. I am available for freelance work in either stack!</p>
 		</div>
-		<div class="col-4">
+		<div class="col-5 coding-logo-group">
+			<%= image_tag 'coding_logos/ruby.jpg', class: "coding-logo" %>
+			<%= image_tag 'coding_logos/rails-logo.svg', class: "coding-logo" %>
+			<%= image_tag 'coding_logos/react-logo.png', class: "coding-logo" %>
+			<%= image_tag 'coding_logos/nodejs-logo.png', class: "coding-logo" %>
 		</div>
 	</div>
 	<div class="row" id="skills">

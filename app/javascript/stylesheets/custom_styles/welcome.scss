@@ -139,6 +139,11 @@ a.link-box {
 
 // About page styles
 
+.oval-image-group {
+	display: flex;
+	justify-content: center;
+}
+
 #cyan-circle {
 	background-color: $cyan;
 	width: 30vh;
@@ -150,7 +155,7 @@ a.link-box {
 	justify-content: center;
 }
 
-#wrigley {
+.oval-picture {
 	width: 25vh;
 	height: 30vh;
 	border-radius: 100%;
@@ -168,8 +173,20 @@ a.link-box {
 	justify-content: center;
 }
 
+.coding-logo-group {
+	display: flex;
+	flex-flow: wrap row;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.coding-logo {
+	max-height: 8vh;
+	margin: 2vh;
+}
+
 #about-me, #coding-background, #skills, #other-interests {
-	margin: 8vh 0;
+	margin: 9vh auto;
 	display: flex;
 	align-items: center;
 	justify-content: center;
