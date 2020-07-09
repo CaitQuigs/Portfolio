@@ -23,6 +23,7 @@ class ContactsController < ApplicationController
   	@contact = Contact.new(contact_params)
 		
 		if @contact.save
+			ContactMailer.with(contact: @contact).new_contact_email.deliver_now
 			redirect_to '/contact_confirmation'
 			flash[:success] = "Contact Information submitted successfully."
 		else

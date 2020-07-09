@@ -11,7 +11,7 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: caitlin
-  password: <%= ENV['PORTFOLIO_DATABASE_PASSWORD'] %>
+  password: Rails.application.credentials.dev_database_password
   port: 5433
   timeout: 5000
 

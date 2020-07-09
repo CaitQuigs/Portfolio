@@ -1,6 +1,6 @@
 @import 'custom_fonts';
 
-// Home Page styles
+/* Home Page styles */
 
 $parallax-height: 100vh;
 $center-margin: 0px auto;
@@ -137,7 +137,7 @@ a.link-box {
 	text-align: center;
 }
 
-// About page styles
+/*About page styles*/
 
 .oval-image-group {
 	display: flex;
@@ -190,4 +190,10 @@ a.link-box {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+/* Responsive Styles for mobile devices */
+
+@media (max-width: 576px) {
+	
 }
