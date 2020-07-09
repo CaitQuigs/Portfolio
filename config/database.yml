@@ -25,3 +25,7 @@ development:
 test:
   <<: *default
   database: db/portfolio_test
+
+production: 
+  <<: *default
+  database: <%= ENV['DATABASE_URL'] %>
