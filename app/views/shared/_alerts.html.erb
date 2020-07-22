@@ -2,7 +2,7 @@
   <% flash.each do |type, messages| %>
     <% if Array === messages %>
       <% messages.each do |msg| %>
-        <div class="alert <%= bootstrap_class_for(type) %> alert-dismissable fade show">
+        <div class="alert <%= bootstrap_class_for(type) %> alert-dismissable fade show mt-2">
           <%= msg %>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -10,7 +10,7 @@
         </div>
       <% end %>
     <% else %>
-      <div class="alert <%= bootstrap_class_for(type) %> alert-dismissable fade show">
+      <div class="alert <%= bootstrap_class_for(type) %> alert-dismissable fade show mt-2">
         <%= messages %>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
