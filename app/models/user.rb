@@ -19,6 +19,15 @@
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :registerable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :recoverable, :rememberable, :validatable
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :recoverable, :registerable, :rememberable, :validatable
+
+  def can_sign_up?
+  	if User.count == 0
+  		return true
+  	else
+  		return false
+  	end
+  end
+
 end
