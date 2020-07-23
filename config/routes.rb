@@ -9,18 +9,25 @@
 #                         user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
 #                                       PUT    /users/password(.:format)                                                                devise/passwords#update
 #                                       POST   /users/password(.:format)                                                                devise/passwords#create
-#              cancel_user_registration GET    /users/cancel(.:format)                                                                  devise/registrations#cancel
-#                 new_user_registration GET    /users/sign_up(.:format)                                                                 devise/registrations#new
-#                edit_user_registration GET    /users/edit(.:format)                                                                    devise/registrations#edit
-#                     user_registration PATCH  /users(.:format)                                                                         devise/registrations#update
-#                                       PUT    /users(.:format)                                                                         devise/registrations#update
-#                                       DELETE /users(.:format)                                                                         devise/registrations#destroy
-#                                       POST   /users(.:format)                                                                         devise/registrations#create
+#              cancel_user_registration GET    /users/cancel(.:format)                                                                  users/registrations#cancel
+#                 new_user_registration GET    /users/sign_up(.:format)                                                                 users/registrations#new
+#                edit_user_registration GET    /users/edit(.:format)                                                                    users/registrations#edit
+#                     user_registration PATCH  /users(.:format)                                                                         users/registrations#update
+#                                       PUT    /users(.:format)                                                                         users/registrations#update
+#                                       DELETE /users(.:format)                                                                         users/registrations#destroy
+#                                       POST   /users(.:format)                                                                         users/registrations#create
 #                                  root GET    /                                                                                        welcome#home
-#                               contact GET    /contact(.:format)                                                                       contacts#new
-#                  contact_confirmation GET    /contact_confirmation(.:format)                                                          contacts#contact_confirmation
 #                                  home GET    /home(.:format)                                                                          welcome#home
 #                                 about GET    /about(.:format)                                                                         welcome#about
+#                              contacts GET    /contacts(.:format)                                                                      contacts#index
+#                                       POST   /contacts(.:format)                                                                      contacts#create
+#                           new_contact GET    /contacts/new(.:format)                                                                  contacts#new
+#                          edit_contact GET    /contacts/:id/edit(.:format)                                                             contacts#edit
+#                               contact GET    /contacts/:id(.:format)                                                                  contacts#show
+#                                       PATCH  /contacts/:id(.:format)                                                                  contacts#update
+#                                       PUT    /contacts/:id(.:format)                                                                  contacts#update
+#                                       DELETE /contacts/:id(.:format)                                                                  contacts#destroy
+#                  contact_confirmation GET    /contact_confirmation(.:format)                                                          contacts#contact_confirmation
 #                   project_screenshots GET    /projects/:project_id/screenshots(.:format)                                              screenshots#index
 #                                       POST   /projects/:project_id/screenshots(.:format)                                              screenshots#create
 #                new_project_screenshot GET    /projects/:project_id/screenshots/new(.:format)                                          screenshots#new
@@ -45,17 +52,7 @@
 #                                       PATCH  /tags/:id(.:format)                                                                      tags#update
 #                                       PUT    /tags/:id(.:format)                                                                      tags#update
 #                                       DELETE /tags/:id(.:format)                                                                      tags#destroy
-#                              contacts GET    /contacts(.:format)                                                                      contacts#index
-#                                       POST   /contacts(.:format)                                                                      contacts#create
-#                           new_contact GET    /contacts/new(.:format)                                                                  contacts#new
-#                          edit_contact GET    /contacts/:id/edit(.:format)                                                             contacts#edit
-#                                       GET    /contacts/:id(.:format)                                                                  contacts#show
-#                                       PATCH  /contacts/:id(.:format)                                                                  contacts#update
-#                                       PUT    /contacts/:id(.:format)                                                                  contacts#update
-#                                       DELETE /contacts/:id(.:format)                                                                  contacts#destroy
-#                                       GET    /projects(.:format)                                                                      projects#index
 #                    show_project_modal GET    /projects/:id/show_project_modal(.:format)                                               projects#show_project_modal
-#                         contacts_list GET    /contacts_list(.:format)                                                                 contacts#index
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
@@ -81,24 +78,18 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" } 
 	root 'welcome#home'
 
-  get 'contact' => 'contacts#new'
-  get 'contact_confirmation' => 'contacts#contact_confirmation'
-  
   get 'home' => 'welcome#home'
   get 'about' =>'welcome#about'
 
+  resources :contacts
+
+  get 'contact_confirmation' => 'contacts#contact_confirmation'
+  
   resources :projects do
     resources :screenshots
   end
 
   resources :tags
 
-  resources :contacts
-
-  get 'projects' => 'projects#index'
-
 	get 'projects/:id/show_project_modal' => 'projects#show_project_modal', :as => :show_project_modal
-
-  # Routes below here will only be visible in admin section
-  get 'contacts_list' => 'contacts#index'
 end
