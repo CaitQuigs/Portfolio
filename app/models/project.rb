@@ -33,10 +33,14 @@ class Project < ApplicationRecord
 		return carousel_urls
 	end
 
-	def thumbnail
-		@screenshot = self.screenshots.first
-		thumbnail = @screenshot.image.variant(resize_to_fit: [400, 225])
-		return thumbnail
+	def project_thumbnail
+		screenshot = self.screenshots.first
+		if screenshot && screenshot.image.attached?
+			sized_image = screenshot.image.variant(resize_to_fit: [400, 225])
+			image_url = Rails.application.routes.url_helpers.rails_representation_path(sized_image, only_path: true)
+			thumbnail = ActionController::Base.helpers.image_tag(image_url, class: "img-fluid")
+		else 
+			thumbnail = ActionController::Base.helpers.content_tag(:div, ActionController::Base.helpers.content_tag(:p, "No image"), class: "img-fluid project-empty-thumbnail")
+		end 
 	end
-
 end

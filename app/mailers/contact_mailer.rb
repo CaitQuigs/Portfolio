@@ -1,6 +1,6 @@
 class ContactMailer < ApplicationMailer
-	default to: 'quigleywebdev@gmail.com', 
-			from: 'quigleywebdev@gmail.com'
+	default to: Rails.application.credentials.gmail_username, 
+			from: Rails.application.credentials.gmail_username
 
 	def new_contact_email
 		@contact = params[:contact]

@@ -37,7 +37,13 @@
 	opacity: 1;
 }
 
-.project-thumbnail {
+.project-empty-thumbnail {
+	background-color: #6c757d;
+	width: 400px;
+	height: 225px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .project-name {

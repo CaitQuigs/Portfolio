@@ -23,7 +23,7 @@ $center-margin: 0px auto;
 	transform: translateZ(-1px);
 	overflow-x: hidden;
 	overflow-y: auto;
-	@include parallax-background('https://quigley-portfolio-bucket.s3.us-east-2.amazonaws.com/nyc_skyline_wide.jpg');
+	@include parallax-background('https://quigley-portfolio-bucket.s3.us-east-2.amazonaws.com/assets/nyc_skyline_wide.jpg');
 }
 
 #mission {
@@ -41,7 +41,7 @@ $center-margin: 0px auto;
 	transform: translateZ(-1px);
 	overflow-x: hidden;
 	overflow-y: auto;
-	@include parallax-background('https://quigley-portfolio-bucket.s3.us-east-2.amazonaws.com/code_pic_1.jpg');
+	@include parallax-background('https://quigley-portfolio-bucket.s3.us-east-2.amazonaws.com/assets/code_pic_1.jpg');
 }
 
 #background-1, #background-2 {

@@ -8,6 +8,16 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T6BSQXL');
+    </script>
+    <!-- End Google Tag Manager -->
+
     <!-- Font Awesome CDN -->
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-mutate-approach="sync"></script>
 
@@ -15,6 +25,11 @@
   </head>
 
   <body>
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6BSQXL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    
     <%= render partial: 'shared/public_navbar' %>
     <main class="<%= @bg_class ? 'bg-light' : '' %>">
       <%= render partial: 'shared/alerts' %>
