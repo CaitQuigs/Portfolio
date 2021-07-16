@@ -12,25 +12,25 @@ class ContactsController < ApplicationController
   end
 
   def new
-  	@contact = Contact.new
+    @contact = Contact.new
   end
 
   def edit
-		@contact = Contact.find(params[:id])
-	end
+	@contact = Contact.find(params[:id])
+  end
 
   def create
   	@contact = Contact.new(contact_params)
 		
-		if @contact.save
-			ContactMailer.with(contact: @contact).new_contact_email.deliver_now
-			redirect_to '/contact_confirmation'
-			flash[:success] = "Contact Information submitted successfully."
-		else
-			flash[:error] = @contact.errors.full_messages
-			render 'new'
-		end
-	end
+  	if @contact.save
+  		ContactMailer.with(contact: @contact).new_contact_email.deliver_now
+  		redirect_to '/contact_confirmation'
+  		flash[:success] = "Contact Information submitted successfully."
+  	else
+  		flash[:error] = @contact.errors.full_messages
+  		render 'new'
+  	end
+  end
 
 	def update
 		@contact = Contact.find(params[:id])
@@ -44,12 +44,12 @@ class ContactsController < ApplicationController
 		end
 	end
 
-	def destroy
-		@contact = Contact.find(params[:id])
-		@contact.destroy
-		redirect_to contacts_path
-		flash[:notice] = "Contact was successfully destroyed."
-	end
+  def destroy
+  	@contact = Contact.find(params[:id])
+  	@contact.destroy
+  	redirect_to contacts_path
+  	flash[:notice] = "Contact was successfully destroyed."
+  end
 
 	def contact_confirmation
 	end
